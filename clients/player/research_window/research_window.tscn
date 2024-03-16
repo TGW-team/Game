@@ -1,0 +1,233 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmonb8jps8v47"]
+
+[ext_resource type="Script" path="res://clients/player/research_window/research_window.gd" id="1_xb7i3"]
+[ext_resource type="Theme" uid="uid://b4b53bgvhwfg4" path="res://clients/player/research_window/research_button_theme.tres" id="2_674bh"]
+[ext_resource type="FontFile" uid="uid://dpaiod0xc1xgs" path="res://graphics/fonts/pixel_2.ttf" id="2_jlf8c"]
+
+[node name="ResearchWindow" type="Panel"]
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 1536.0
+offset_bottom = 896.0
+script = ExtResource("1_xb7i3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jlf8c")
+theme_override_font_sizes/font_size = 20
+text = "Промышленность"
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jlf8c")
+theme_override_font_sizes/font_size = 20
+text = "Общество"
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jlf8c")
+theme_override_font_sizes/font_size = 20
+text = "Военное дело"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="Category_1" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/Category_1"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer2/Category_1"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer2/Category_1"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2/Category_1"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer2/Category_1"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer2/Category_1"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Category_2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/Category_2"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer2/Category_2"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer2/Category_2"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2/Category_2"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer2/Category_2"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer2/Category_2"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Category_3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/Category_3"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer2/Category_3"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer2/Category_3"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2/Category_3"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer2/Category_3"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer2/Category_3"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Category_4" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/Category_4"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer2/Category_4"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer2/Category_4"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2/Category_4"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer2/Category_4"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer2/Category_4"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Category_5" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2/Category_5"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer2/Category_5"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer2/Category_5"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2/Category_5"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer2/Category_5"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer2/Category_5"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme = ExtResource("2_674bh")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2

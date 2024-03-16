@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://d34d3pvjgle52"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_8e5ab"]
+[ext_resource type="Texture2D" uid="uid://dckyteduqb5db" path="res://graphics/sprites/goods/sulfur.png" id="1_mokl4"]
+
+[resource]
+script = ExtResource("1_8e5ab")
+good_name = "sulphur"
+icon = ExtResource("1_mokl4")
+basic_price = 10.0

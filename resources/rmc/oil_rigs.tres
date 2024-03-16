@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RmcType" load_steps=3 format=3 uid="uid://b6djkdd0jf16"]
+
+[ext_resource type="Resource" uid="uid://bryaanl1wyrb3" path="res://resources/goods/oil.tres" id="1_4tnkl"]
+[ext_resource type="Script" path="res://resources/gd_scripts/rmc_type.gd" id="1_gy1h1"]
+
+[resource]
+script = ExtResource("1_gy1h1")
+further_produced_goods = Array[Resource("res://resources/gd_scripts/good.gd")]([])
+enterprise_name = ""
+produced_good = ExtResource("1_4tnkl")
+production_type = "agriculture"
+basic_production_eff = 0.3
+raw_materials_list = {}

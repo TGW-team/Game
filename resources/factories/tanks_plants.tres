@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="FactoryType" load_steps=12 format=3 uid="uid://bhodp7smp5upi"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/factory_type.gd" id="1_1la6r"]
+[ext_resource type="Resource" uid="uid://bjkdjy1425vkd" path="res://resources/goods/tanks.tres" id="1_3m4ry"]
+[ext_resource type="Resource" uid="uid://g885v6cfava6" path="res://resources/goods/automobiles.tres" id="2_7dhua"]
+[ext_resource type="Script" path="res://resources/gd_scripts/storage_good_res.gd" id="3_d24j3"]
+[ext_resource type="Resource" uid="uid://dmcqdafd5smv5" path="res://resources/goods/parts.tres" id="4_iu44s"]
+[ext_resource type="Resource" uid="uid://cvxud2tkf08y6" path="res://resources/goods/steel.tres" id="5_cweo1"]
+[ext_resource type="Resource" uid="uid://cc5hb0apxmx3e" path="res://resources/goods/electric_parts.tres" id="6_dr0xp"]
+
+[sub_resource type="Resource" id="Resource_q0ftd"]
+script = ExtResource("3_d24j3")
+good_res = ExtResource("2_7dhua")
+required_number = 0.1
+
+[sub_resource type="Resource" id="Resource_b4ps0"]
+script = ExtResource("3_d24j3")
+good_res = ExtResource("4_iu44s")
+required_number = 0.1
+
+[sub_resource type="Resource" id="Resource_a2dqo"]
+script = ExtResource("3_d24j3")
+good_res = ExtResource("5_cweo1")
+required_number = 0.1
+
+[sub_resource type="Resource" id="Resource_a8kpy"]
+script = ExtResource("3_d24j3")
+good_res = ExtResource("6_dr0xp")
+required_number = 0.1
+
+[resource]
+script = ExtResource("1_1la6r")
+enterprise_name = ""
+produced_good = ExtResource("1_3m4ry")
+production_type = "vehicle_industry"
+basic_production_eff = 0.4
+raw_materials_list = Array[ExtResource("3_d24j3")]([SubResource("Resource_q0ftd"), SubResource("Resource_b4ps0"), SubResource("Resource_a2dqo"), SubResource("Resource_a8kpy")])

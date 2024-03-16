@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="FactoryType" load_steps=7 format=3 uid="uid://x7abg634e45n"]
+
+[ext_resource type="Resource" uid="uid://cbwsa3f0w77kq" path="res://resources/goods/alcohol.tres" id="1_1bwj5"]
+[ext_resource type="Script" path="res://resources/gd_scripts/factory_type.gd" id="1_jolhq"]
+[ext_resource type="Resource" uid="uid://783jbrp0iaoo" path="res://resources/goods/grain.tres" id="3_8tutf"]
+[ext_resource type="Script" path="res://resources/gd_scripts/storage_good_res.gd" id="3_60cnq"]
+
+[sub_resource type="Resource" id="Resource_ssd3i"]
+script = ExtResource("3_60cnq")
+required_number = 0.1
+
+[sub_resource type="Resource" id="Resource_qcub8"]
+script = ExtResource("3_60cnq")
+good_res = ExtResource("3_8tutf")
+required_number = 0.1
+
+[resource]
+script = ExtResource("1_jolhq")
+enterprise_name = ""
+produced_good = ExtResource("1_1bwj5")
+production_type = "consumer_industry"
+basic_production_eff = 0.5
+raw_materials_list = Array[ExtResource("3_60cnq")]([SubResource("Resource_ssd3i"), SubResource("Resource_qcub8")])

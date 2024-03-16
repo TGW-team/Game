@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8ru3utkm05k3"]
+
+[ext_resource type="PackedScene" uid="uid://cee3pnpgu17o3" path="res://addons/tgwassethelper/sprite_factory_form.tscn" id="1_tgshm"]
+
+[node name="SpriteFactory" type="AcceptDialog"]
+title = "TGW Sprite factory"
+position = Vector2i(0, 36)
+size = Vector2i(246, 466)
+visible = true
+ok_button_text = "Build"
+dialog_hide_on_ok = false
+
+[node name="SpriteFactory" parent="." instance=ExtResource("1_tgshm")]
+offset_right = 238.0
+offset_bottom = 417.0

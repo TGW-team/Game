@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RmcType" load_steps=5 format=3 uid="uid://clco4mp8wf5m6"]
+
+[ext_resource type="Resource" uid="uid://djfgva2eqj3h6" path="res://resources/goods/cattle.tres" id="1_a8qee"]
+[ext_resource type="Resource" uid="uid://b4i68r7p74lmn" path="res://resources/goods/wool.tres" id="1_jeivm"]
+[ext_resource type="Script" path="res://resources/gd_scripts/rmc_type.gd" id="1_p026d"]
+[ext_resource type="Resource" uid="uid://npihvo1u5s2g" path="res://resources/goods/fabric.tres" id="2_2o7ee"]
+
+[resource]
+script = ExtResource("1_p026d")
+further_produced_goods = Array[Resource("res://resources/gd_scripts/good.gd")]([ExtResource("1_jeivm"), ExtResource("2_2o7ee")])
+enterprise_name = ""
+produced_good = ExtResource("1_a8qee")
+production_type = "agriculture"
+basic_production_eff = 0.3
+raw_materials_list = {}

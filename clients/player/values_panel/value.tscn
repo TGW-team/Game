@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b53le7bg82uow"]
+
+[ext_resource type="Script" path="res://clients/player/values_panel/value_panel.gd" id="1_fjdd4"]
+[ext_resource type="Texture2D" uid="uid://d2bmbh2ptf4lv" path="res://graphics/sprites/values_panel_icons/aggressiveness.png" id="2_gb18c"]
+[ext_resource type="FontFile" uid="uid://dpaiod0xc1xgs" path="res://graphics/fonts/pixel_2.ttf" id="3_ltnxb"]
+
+[node name="Value" type="HBoxContainer"]
+offset_right = 120.0
+offset_bottom = 31.0
+script = ExtResource("1_fjdd4")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_gb18c")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("3_ltnxb")
+theme_override_font_sizes/font_size = 30
+text = "ЫЫЫЫ"
+vertical_alignment = 1

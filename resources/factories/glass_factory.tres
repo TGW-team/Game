@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="FactoryType" load_steps=6 format=3 uid="uid://bn2qdn1uvyy1x"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/factory_type.gd" id="1_kfy0r"]
+[ext_resource type="Resource" uid="uid://cn6nk67n0h4y5" path="res://resources/goods/glass.tres" id="1_oiqn8"]
+[ext_resource type="Resource" uid="uid://b8xbe7tthuqel" path="res://resources/goods/coal.tres" id="2_f38lf"]
+[ext_resource type="Script" path="res://resources/gd_scripts/storage_good_res.gd" id="3_87iw5"]
+
+[sub_resource type="Resource" id="Resource_17mmi"]
+script = ExtResource("3_87iw5")
+good_res = ExtResource("2_f38lf")
+required_number = 0.1
+
+[resource]
+script = ExtResource("1_kfy0r")
+enterprise_name = ""
+produced_good = ExtResource("1_oiqn8")
+production_type = "light_industry"
+basic_production_eff = 0.8
+raw_materials_list = Array[ExtResource("3_87iw5")]([SubResource("Resource_17mmi")])

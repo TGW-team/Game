@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://c72pq0idjcwk3"]
+
+[ext_resource type="Texture2D" uid="uid://0ku6i5nlopgx" path="res://graphics/sprites/goods/small_arms.png" id="1_f7g8i"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="2_25ejh"]
+
+[resource]
+script = ExtResource("2_25ejh")
+good_name = "small_arms"
+icon = ExtResource("1_f7g8i")
+basic_price = 25.0

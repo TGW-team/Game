@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://1uepvi34g7u2"]
+
+[ext_resource type="Texture2D" uid="uid://cmka7nhc8scv7" path="res://graphics/sprites/goods/artillery.png" id="1_ipr4l"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_jcu3x"]
+
+[resource]
+script = ExtResource("1_jcu3x")
+good_name = "artillery"
+icon = ExtResource("1_ipr4l")
+basic_price = 60.0

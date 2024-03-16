@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Ideology" load_steps=6 format=3 uid="uid://1nasrc4ci70m"]
+
+[ext_resource type="Resource" uid="uid://bflxcrf70bcec" path="res://resources/parties/economic_policy/dirigisme.tres" id="1_osf5c"]
+[ext_resource type="Script" path="res://resources/gd_scripts/ideology.gd" id="1_qivcp"]
+[ext_resource type="Resource" uid="uid://dqsq506w1av00" path="res://resources/parties/military_policy/expansionism.tres" id="2_6tk0g"]
+[ext_resource type="Texture2D" uid="uid://drs117otbqc6x" path="res://graphics/sprites/ideologies_icons/fascists_icon.png" id="2_ued0b"]
+[ext_resource type="Resource" uid="uid://2aklkxujsx2i" path="res://resources/parties/trade_policy/protectionism.tres" id="4_j6t04"]
+
+[resource]
+script = ExtResource("1_qivcp")
+ideology_name = "fascists"
+economic_policy = ExtResource("1_osf5c")
+trade_policy = ExtResource("4_j6t04")
+military_policy = ExtResource("2_6tk0g")
+icon = ExtResource("2_ued0b")

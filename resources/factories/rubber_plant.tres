@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="FactoryType" load_steps=6 format=3 uid="uid://t3doug3vbves"]
+
+[ext_resource type="Resource" uid="uid://bvkx2aad8t2kt" path="res://resources/goods/rubber.tres" id="1_3yh23"]
+[ext_resource type="Script" path="res://resources/gd_scripts/factory_type.gd" id="1_84web"]
+[ext_resource type="Resource" uid="uid://bryaanl1wyrb3" path="res://resources/goods/oil.tres" id="2_ufsr7"]
+[ext_resource type="Script" path="res://resources/gd_scripts/storage_good_res.gd" id="3_ukiqf"]
+
+[sub_resource type="Resource" id="Resource_xjmqk"]
+script = ExtResource("3_ukiqf")
+good_res = ExtResource("2_ufsr7")
+required_number = 0.1
+
+[resource]
+script = ExtResource("1_84web")
+enterprise_name = ""
+produced_good = ExtResource("1_3yh23")
+production_type = "chemical_industry"
+basic_production_eff = 0.7
+raw_materials_list = Array[ExtResource("3_ukiqf")]([SubResource("Resource_xjmqk")])

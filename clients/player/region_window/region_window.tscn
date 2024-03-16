@@ -1,0 +1,166 @@
+[gd_scene load_steps=5 format=3 uid="uid://da7jfgbrdoojs"]
+
+[ext_resource type="FontFile" uid="uid://dpaiod0xc1xgs" path="res://graphics/fonts/pixel_2.ttf" id="1_0iot4"]
+[ext_resource type="Script" path="res://clients/player/region_window/region_window.gd" id="1_4f1i8"]
+[ext_resource type="PackedScene" uid="uid://lqsgpb01da0b" path="res://clients/player/region_window/pop_panel/pop_panel.tscn" id="4_0mcg4"]
+[ext_resource type="PackedScene" uid="uid://bh56ctvm4ow3x" path="res://clients/player/region_window/rmc_panel/rmc_panel.tscn" id="4_15ts1"]
+
+[node name="RegionWindow" type="Panel"]
+texture_filter = 1
+offset_top = 512.0
+offset_right = 384.0
+offset_bottom = 1080.0
+script = ExtResource("1_4f1i8")
+
+[node name="RegionName" type="Label" parent="."]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 30
+text = "Great Poland"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_right = 384.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 40
+text = "X"
+
+[node name="Edit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 320.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 30
+text = "Edit"
+
+[node name="Landscape" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 256.0
+
+[node name="CottageIndustry" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 192.0
+offset_top = 336.0
+offset_right = 384.0
+offset_bottom = 352.0
+theme_override_fonts/normal_font = ExtResource("1_0iot4")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "cottage industry"
+
+[node name="ProducedGoods" type="GridContainer" parent="."]
+layout_mode = 2
+offset_top = 328.0
+offset_right = 192.0
+offset_bottom = 448.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 16
+columns = 4
+
+[node name="PopStats" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 256.0
+offset_right = 152.0
+offset_bottom = 328.0
+theme_override_constants/separation = 0
+
+[node name="PopNumber" type="Label" parent="PopStats"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0iot4")
+theme_override_font_sizes/font_size = 20
+text = "Население"
+
+[node name="Migration" type="Label" parent="PopStats"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0iot4")
+theme_override_font_sizes/font_size = 20
+text = "Миграция"
+
+[node name="BirthRate" type="Label" parent="PopStats"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0iot4")
+theme_override_font_sizes/font_size = 20
+text = "Рождаемость"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 448.0
+offset_right = 192.0
+offset_bottom = 544.0
+theme_override_constants/separation = 0
+
+[node name="Button2" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_0iot4")
+theme_override_font_sizes/font_size = 25
+text = "Население"
+
+[node name="Button3" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_0iot4")
+theme_override_font_sizes/font_size = 25
+text = "Промышленнсоть"
+
+[node name="RmcList" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 368.0
+offset_right = 384.0
+offset_bottom = 544.0
+theme_override_constants/separation = 0
+
+[node name="RmcPanel" parent="RmcList" instance=ExtResource("4_15ts1")]
+layout_mode = 2
+
+[node name="RmcPanel2" parent="RmcList" instance=ExtResource("4_15ts1")]
+layout_mode = 2
+
+[node name="RmcPanel3" parent="RmcList" instance=ExtResource("4_15ts1")]
+layout_mode = 2
+
+[node name="RmcPanel4" parent="RmcList" instance=ExtResource("4_15ts1")]
+layout_mode = 2
+
+[node name="Population" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 856.0
+offset_bottom = 567.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Population"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="PopPanel" parent="Population/VBoxContainer" instance=ExtResource("4_0mcg4")]
+layout_mode = 2
+
+[node name="PopPanel2" parent="Population/VBoxContainer" instance=ExtResource("4_0mcg4")]
+layout_mode = 2
+pop_unit_index = 1
+
+[node name="PopPanel3" parent="Population/VBoxContainer" instance=ExtResource("4_0mcg4")]
+layout_mode = 2
+pop_unit_index = 2
+
+[node name="PopPanel4" parent="Population/VBoxContainer" instance=ExtResource("4_0mcg4")]
+layout_mode = 2
+pop_unit_index = 3
+
+[connection signal="pressed" from="Close" to="." method="close_window"]
+[connection signal="pressed" from="VBoxContainer2/Button3" to="." method="open_industry_window"]

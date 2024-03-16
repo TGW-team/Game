@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://bxg2heepvtto5"]
+
+[ext_resource type="Texture2D" uid="uid://bpy3wu7xhxtts" path="res://graphics/sprites/goods/ammo.png" id="1_hv7e3"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_nrk06"]
+
+[resource]
+script = ExtResource("1_nrk06")
+good_name = "ammo"
+icon = ExtResource("1_hv7e3")
+basic_price = 15.0

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Ideology" load_steps=6 format=3 uid="uid://trdt20fofdhe"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/ideology.gd" id="1_isgli"]
+[ext_resource type="Resource" uid="uid://ds58l0adu22nn" path="res://resources/parties/economic_policy/planned_economy.tres" id="1_ubwls"]
+[ext_resource type="Resource" uid="uid://dqsq506w1av00" path="res://resources/parties/military_policy/expansionism.tres" id="2_tjcsa"]
+[ext_resource type="Texture2D" uid="uid://bicxqhdy18cdg" path="res://graphics/sprites/ideologies_icons/communists_icon.png" id="2_uve5c"]
+[ext_resource type="Resource" uid="uid://2aklkxujsx2i" path="res://resources/parties/trade_policy/protectionism.tres" id="4_av4b2"]
+
+[resource]
+script = ExtResource("1_isgli")
+ideology_name = "communists"
+economic_policy = ExtResource("1_ubwls")
+trade_policy = ExtResource("4_av4b2")
+military_policy = ExtResource("2_tjcsa")
+icon = ExtResource("2_uve5c")

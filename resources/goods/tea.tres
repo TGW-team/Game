@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://ct2xtgg6o5god"]
+
+[ext_resource type="Texture2D" uid="uid://dk8hqpen3bpaj" path="res://graphics/sprites/goods/tea.png" id="1_q1e6c"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_w8i1c"]
+
+[resource]
+script = ExtResource("1_w8i1c")
+good_name = "tea"
+icon = ExtResource("1_q1e6c")
+basic_price = 5.0

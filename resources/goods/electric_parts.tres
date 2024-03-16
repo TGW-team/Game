@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://cc5hb0apxmx3e"]
+
+[ext_resource type="Texture2D" uid="uid://om530fo32gbg" path="res://graphics/sprites/goods/electric_parts.png" id="1_e60f8"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_ewi60"]
+
+[resource]
+script = ExtResource("1_ewi60")
+good_name = "electric_parts"
+icon = ExtResource("1_e60f8")
+basic_price = 8.0

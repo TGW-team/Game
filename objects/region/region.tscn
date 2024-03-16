@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dowcw5xulyd3n"]
+
+[ext_resource type="Script" path="res://objects/region/region.gd" id="1_eqwuc"]
+
+[node name="Region" type="TextureButton"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_eqwuc")

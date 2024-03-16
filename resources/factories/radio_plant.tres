@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="FactoryType" load_steps=8 format=3 uid="uid://c5dcwcjjj2eb1"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/factory_type.gd" id="1_026y1"]
+[ext_resource type="Resource" uid="uid://cdgx834wdqa8p" path="res://resources/goods/radio.tres" id="1_co34y"]
+[ext_resource type="Resource" uid="uid://cc5hb0apxmx3e" path="res://resources/goods/electric_parts.tres" id="2_e10u6"]
+[ext_resource type="Script" path="res://resources/gd_scripts/storage_good_res.gd" id="3_ttgu3"]
+[ext_resource type="Resource" uid="uid://cn6nk67n0h4y5" path="res://resources/goods/glass.tres" id="4_n5vmj"]
+
+[sub_resource type="Resource" id="Resource_dbasr"]
+script = ExtResource("3_ttgu3")
+good_res = ExtResource("2_e10u6")
+required_number = 0.1
+
+[sub_resource type="Resource" id="Resource_drff7"]
+script = ExtResource("3_ttgu3")
+good_res = ExtResource("4_n5vmj")
+required_number = 0.1
+
+[resource]
+script = ExtResource("1_026y1")
+enterprise_name = ""
+produced_good = ExtResource("1_co34y")
+production_type = "electric_industry"
+basic_production_eff = 0.7
+raw_materials_list = Array[ExtResource("3_ttgu3")]([SubResource("Resource_dbasr"), SubResource("Resource_drff7")])

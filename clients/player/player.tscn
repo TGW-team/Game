@@ -1,0 +1,46 @@
+[gd_scene load_steps=12 format=3 uid="uid://dk81ajxg3liwl"]
+
+[ext_resource type="PackedScene" uid="uid://ckur535u7nqh2" path="res://clients/player/window_buttons/window_buttons.tscn" id="1_i5a4s"]
+[ext_resource type="Script" path="res://clients/player/player.gd" id="1_yaxy8"]
+[ext_resource type="PackedScene" uid="uid://c52lsc3j2dy44" path="res://clients/player/info_panel/info_panel.tscn" id="2_a2gck"]
+[ext_resource type="Script" path="res://clients/player/camera.gd" id="2_jt746"]
+[ext_resource type="PackedScene" uid="uid://drgxywosf7mo2" path="res://clients/player/values_panel/values_panel.tscn" id="3_4k77b"]
+[ext_resource type="PackedScene" uid="uid://d3u7jd3bp1f3v" path="res://clients/player/politics_window/politics_window.tscn" id="4_wsndb"]
+[ext_resource type="PackedScene" uid="uid://4thr5nkkil0c" path="res://clients/player/budget_window/budget_window.tscn" id="6_8y7gj"]
+[ext_resource type="PackedScene" uid="uid://da7jfgbrdoojs" path="res://clients/player/region_window/region_window.tscn" id="7_rvtig"]
+[ext_resource type="PackedScene" uid="uid://4jjeiax1v8vw" path="res://clients/player/industry_window/industry_window.tscn" id="8_lyd05"]
+[ext_resource type="PackedScene" uid="uid://ba4lv1oqbgpja" path="res://clients/player/production_window/production_window.tscn" id="9_pmmvi"]
+[ext_resource type="PackedScene" uid="uid://cmonb8jps8v47" path="res://clients/player/research_window/research_window.tscn" id="10_cgbx8"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_yaxy8")
+
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("2_jt746")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="WindowButtons" parent="CanvasLayer" instance=ExtResource("1_i5a4s")]
+offset_bottom = 72.0
+
+[node name="InfoPanel" parent="CanvasLayer" instance=ExtResource("2_a2gck")]
+
+[node name="ValuesPanel" parent="CanvasLayer" instance=ExtResource("3_4k77b")]
+
+[node name="PoliticsWindow" parent="CanvasLayer" instance=ExtResource("4_wsndb")]
+visible = false
+
+[node name="BudgetWindow" parent="CanvasLayer" instance=ExtResource("6_8y7gj")]
+visible = false
+
+[node name="RegionWindow" parent="CanvasLayer" instance=ExtResource("7_rvtig")]
+visible = false
+
+[node name="IndustryWindow" parent="CanvasLayer" instance=ExtResource("8_lyd05")]
+visible = false
+
+[node name="ProductionWindow" parent="CanvasLayer" instance=ExtResource("9_pmmvi")]
+visible = false
+
+[node name="ResearchWindow" parent="CanvasLayer" instance=ExtResource("10_cgbx8")]
+visible = false

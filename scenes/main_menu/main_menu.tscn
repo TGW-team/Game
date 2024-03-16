@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://bixymeiq4vpaf"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_bpit2"]
+[ext_resource type="FontFile" uid="uid://dpaiod0xc1xgs" path="res://graphics/fonts/pixel_2.ttf" id="2_rsyg0"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_bpit2")
+
+[node name="GameName" type="Label" parent="."]
+offset_right = 1920.0
+offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("2_rsyg0")
+theme_override_font_sizes/font_size = 100
+text = "The Great war (1901-1936)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GeneralInfo" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 760.0
+offset_right = 512.0
+offset_bottom = 959.0
+theme_override_fonts/font = ExtResource("2_rsyg0")
+theme_override_font_sizes/font_size = 20
+text = "Скрипты, графика - Kirill_kerensky
+Скрипты - Question
+Графика - Kyle
+Графика - Protoss"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+offset_left = 832.0
+offset_top = 320.0
+offset_right = 1152.0
+offset_bottom = 640.0
+
+[node name="Singleplayer" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rsyg0")
+theme_override_font_sizes/font_size = 20
+text = "Одиночная игра"
+
+[node name="Multiplayer" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rsyg0")
+theme_override_font_sizes/font_size = 20
+text = "Мультиплеер"
+
+[node name="Settings" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rsyg0")
+theme_override_font_sizes/font_size = 20
+text = "Настройки"
+
+[node name="Exit" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_rsyg0")
+theme_override_font_sizes/font_size = 20
+text = "Выход"
+
+[node name="ChooseState" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 832.0
+offset_top = 192.0
+offset_right = 1152.0
+offset_bottom = 896.0
+mouse_filter = 2
+
+[node name="ExampleButton" type="Button" parent="."]
+offset_left = 136.0
+offset_top = -48.0
+offset_right = 264.0
+offset_bottom = -9.0
+theme_override_fonts/font = ExtResource("2_rsyg0")
+theme_override_font_sizes/font_size = 30
+text = "State"
+
+[connection signal="pressed" from="MainButtons/Singleplayer" to="." method="singleplayer_button_pressed"]

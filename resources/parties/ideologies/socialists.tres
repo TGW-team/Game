@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Ideology" load_steps=6 format=3 uid="uid://dm4h4udfilhxs"]
+
+[ext_resource type="Resource" uid="uid://csul0ipb8fifb" path="res://resources/parties/economic_policy/interventionism.tres" id="1_fbj83"]
+[ext_resource type="Script" path="res://resources/gd_scripts/ideology.gd" id="1_j60mg"]
+[ext_resource type="Texture2D" uid="uid://b54o2lbc41fwd" path="res://graphics/sprites/ideologies_icons/socialists_icon.png" id="2_3pdxe"]
+[ext_resource type="Resource" uid="uid://dyqbty4xc7y6u" path="res://resources/parties/military_policy/pacifism.tres" id="2_upukc"]
+[ext_resource type="Resource" uid="uid://2aklkxujsx2i" path="res://resources/parties/trade_policy/protectionism.tres" id="4_mo1fw"]
+
+[resource]
+script = ExtResource("1_j60mg")
+ideology_name = "socialists"
+economic_policy = ExtResource("1_fbj83")
+trade_policy = ExtResource("4_mo1fw")
+military_policy = ExtResource("2_upukc")
+icon = ExtResource("2_3pdxe")

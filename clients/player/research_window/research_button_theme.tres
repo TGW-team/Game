@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b4b53bgvhwfg4"]
+
+[ext_resource type="FontFile" uid="uid://dpaiod0xc1xgs" path="res://graphics/fonts/pixel_2.ttf" id="1_u1g74"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8fi7"]
+bg_color = Color(0, 0.32549, 0.498039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2stib"]
+bg_color = Color(0, 0.32549, 0.498039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhus8"]
+bg_color = Color(0, 0.278431, 0.431373, 1)
+
+[resource]
+Button/font_sizes/font_size = 23
+Button/fonts/font = ExtResource("1_u1g74")
+Button/styles/hover = SubResource("StyleBoxFlat_r8fi7")
+Button/styles/normal = SubResource("StyleBoxFlat_2stib")
+Button/styles/pressed = SubResource("StyleBoxFlat_fhus8")

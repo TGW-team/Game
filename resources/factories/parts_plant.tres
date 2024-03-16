@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="FactoryType" load_steps=8 format=3 uid="uid://cffro4awrrk7x"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/factory_type.gd" id="1_e4vxk"]
+[ext_resource type="Resource" uid="uid://dmcqdafd5smv5" path="res://resources/goods/parts.tres" id="1_gxy3o"]
+[ext_resource type="Resource" uid="uid://b8xbe7tthuqel" path="res://resources/goods/coal.tres" id="2_fwfra"]
+[ext_resource type="Script" path="res://resources/gd_scripts/storage_good_res.gd" id="3_gb2eu"]
+[ext_resource type="Resource" uid="uid://cvxud2tkf08y6" path="res://resources/goods/steel.tres" id="4_o8pru"]
+
+[sub_resource type="Resource" id="Resource_5ud8u"]
+script = ExtResource("3_gb2eu")
+good_res = ExtResource("2_fwfra")
+required_number = 0.1
+
+[sub_resource type="Resource" id="Resource_6igyd"]
+script = ExtResource("3_gb2eu")
+good_res = ExtResource("4_o8pru")
+required_number = 0.1
+
+[resource]
+script = ExtResource("1_e4vxk")
+enterprise_name = ""
+produced_good = ExtResource("1_gxy3o")
+production_type = "machinery_industry"
+basic_production_eff = 0.6
+raw_materials_list = Array[ExtResource("3_gb2eu")]([SubResource("Resource_5ud8u"), SubResource("Resource_6igyd")])

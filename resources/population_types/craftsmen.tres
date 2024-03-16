@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PopType" load_steps=3 format=3 uid="uid://bk0ppj3s1u8r4"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/population_type.gd" id="1_i082c"]
+[ext_resource type="Texture2D" uid="uid://27t85ws737vm" path="res://graphics/sprites/pop_types/craftsmen.png" id="1_w1dws"]
+
+[resource]
+script = ExtResource("1_i082c")
+pop_type_name = "craftsmen"
+pop_type_icon = ExtResource("1_w1dws")
+needs_list = Array[Resource("res://resources/gd_scripts/good_need.gd")]([])
+tax_kind = "poor_classes_taxes"
+accounting_tax_kind = "poor_taxes_income"

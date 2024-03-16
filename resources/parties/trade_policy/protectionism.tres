@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TradePolicy" load_steps=2 format=3 uid="uid://2aklkxujsx2i"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/trade_policy.gd" id="1_i3abk"]
+
+[resource]
+script = ExtResource("1_i3abk")
+policy_name = "PROTECTIONISM"

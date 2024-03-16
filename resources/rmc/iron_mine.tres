@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RmcType" load_steps=3 format=3 uid="uid://b5a74yyolh1w"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/rmc_type.gd" id="1_lqm4l"]
+[ext_resource type="Resource" uid="uid://c630m0t0gpocw" path="res://resources/goods/iron.tres" id="1_txtmi"]
+
+[resource]
+script = ExtResource("1_lqm4l")
+further_produced_goods = Array[Resource("res://resources/gd_scripts/good.gd")]([])
+enterprise_name = ""
+produced_good = ExtResource("1_txtmi")
+production_type = "metallurgy"
+basic_production_eff = 0.3
+raw_materials_list = {}

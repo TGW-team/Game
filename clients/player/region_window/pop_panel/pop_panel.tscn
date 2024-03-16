@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://lqsgpb01da0b"]
+
+[ext_resource type="Script" path="res://clients/player/region_window/pop_panel/pop_panel.gd" id="1_fhrn6"]
+[ext_resource type="FontFile" uid="uid://dpaiod0xc1xgs" path="res://graphics/fonts/pixel_2.ttf" id="2_c4fnf"]
+[ext_resource type="Texture2D" uid="uid://caxvmgstm2rb2" path="res://graphics/sprites/pop_types/labourers.png" id="2_nfe3a"]
+[ext_resource type="Texture2D" uid="uid://42i78hpqxo1v" path="res://graphics/sprites/values_panel_icons/population_number.png" id="3_bwygq"]
+[ext_resource type="Texture2D" uid="uid://pv5wnmlhw78x" path="res://graphics/sprites/values_panel_icons/money.png" id="4_8g6g6"]
+
+[node name="PopPanel" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+script = ExtResource("1_fhrn6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_nfe3a")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_c4fnf")
+theme_override_font_sizes/font_size = 20
+text = "Ремесленники"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_bwygq")
+expand_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_c4fnf")
+theme_override_font_sizes/font_size = 20
+text = "gg"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("4_8g6g6")
+expand_mode = 3
+
+[node name="Label3" type="Label" parent="."]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_c4fnf")
+theme_override_font_sizes/font_size = 20
+text = "gg"
+horizontal_alignment = 1
+vertical_alignment = 1

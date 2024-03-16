@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://djfgva2eqj3h6"]
+
+[ext_resource type="Texture2D" uid="uid://bvo04jd43fv4l" path="res://graphics/sprites/goods/cattle.png" id="1_2ijbq"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_xb4ij"]
+
+[resource]
+script = ExtResource("1_xb4ij")
+good_name = "cattle"
+icon = ExtResource("1_2ijbq")
+basic_price = 4.0

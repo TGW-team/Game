@@ -1,0 +1,2 @@
+class_name EconomicPolicy
+extends GovernmentPolicy

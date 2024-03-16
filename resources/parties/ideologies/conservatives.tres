@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Ideology" load_steps=6 format=3 uid="uid://wx6o5q6d3r25"]
+
+[ext_resource type="Resource" uid="uid://cjrcbnwq7b4ek" path="res://resources/parties/economic_policy/market_economy.tres" id="1_4dn6s"]
+[ext_resource type="Script" path="res://resources/gd_scripts/ideology.gd" id="1_laoqq"]
+[ext_resource type="Texture2D" uid="uid://co6c0aeto620p" path="res://graphics/sprites/ideologies_icons/conservatives_icon.png" id="2_51i7o"]
+[ext_resource type="Resource" uid="uid://bg8r8dcupvvrn" path="res://resources/parties/military_policy/militarism.tres" id="2_oyts7"]
+[ext_resource type="Resource" uid="uid://1ta2yecgmlnb" path="res://resources/parties/trade_policy/free_trade.tres" id="4_ueyg7"]
+
+[resource]
+script = ExtResource("1_laoqq")
+ideology_name = "conservatives"
+economic_policy = ExtResource("1_4dn6s")
+trade_policy = ExtResource("4_ueyg7")
+military_policy = ExtResource("2_oyts7")
+icon = ExtResource("2_51i7o")

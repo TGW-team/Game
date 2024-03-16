@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://cbwsa3f0w77kq"]
+
+[ext_resource type="Texture2D" uid="uid://rvugbttnv8r8" path="res://graphics/sprites/goods/alcohol.png" id="1_eapna"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_hrd1f"]
+
+[resource]
+script = ExtResource("1_hrd1f")
+good_name = "alcohol"
+icon = ExtResource("1_eapna")
+basic_price = 12.0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://npihvo1u5s2g"]
+
+[ext_resource type="Texture2D" uid="uid://btwpw3l77h5ew" path="res://graphics/sprites/goods/fabric.png" id="1_dxxk0"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="2_xxwbw"]
+
+[resource]
+script = ExtResource("2_xxwbw")
+good_name = "fabric"
+icon = ExtResource("1_dxxk0")
+basic_price = 5.0

@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3p71v3652nui"]
+
+[ext_resource type="Script" path="res://clients/player/politics_window/party_panel/party_panel.gd" id="1_7swck"]
+[ext_resource type="FontFile" uid="uid://dpaiod0xc1xgs" path="res://graphics/fonts/pixel_2.ttf" id="1_s3kk0"]
+[ext_resource type="Texture2D" uid="uid://b54o2lbc41fwd" path="res://graphics/sprites/ideologies_icons/socialists_icon.png" id="3_0fgin"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o53en"]
+bg_color = Color(0.333333, 0.321569, 0.262745, 1)
+
+[node name="PartyPanel" type="Panel"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 233)
+offset_right = 200.0
+offset_bottom = 232.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o53en")
+script = ExtResource("1_7swck")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PartyName" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s3kk0")
+theme_override_font_sizes/font_size = 30
+text = "Party name"
+icon = ExtResource("3_0fgin")
+
+[node name="Space" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "
+
+
+
+"
+
+[node name="Trade" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s3kk0")
+theme_override_font_sizes/font_size = 25
+text = "Trade policy:"
+
+[node name="Economy" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s3kk0")
+theme_override_font_sizes/font_size = 25
+text = "Economic policy:"
+
+[node name="Army" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_s3kk0")
+theme_override_font_sizes/font_size = 25
+text = "Military policy:"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://bljnpi10v2r74"]
+
+[ext_resource type="Texture2D" uid="uid://cdsc4ksbajf57" path="res://graphics/sprites/goods/furniture.png" id="1_d1o6u"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_qgix1"]
+
+[resource]
+script = ExtResource("1_qgix1")
+good_name = "furniture"
+icon = ExtResource("1_d1o6u")
+basic_price = 10.0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://bryaanl1wyrb3"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_0l7m8"]
+[ext_resource type="Texture2D" uid="uid://d048a14j670pl" path="res://graphics/sprites/goods/oil.png" id="1_3a1mq"]
+
+[resource]
+script = ExtResource("1_0l7m8")
+good_name = "oil"
+icon = ExtResource("1_3a1mq")
+basic_price = 8.0

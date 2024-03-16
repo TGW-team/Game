@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://c52lsc3j2dy44"]
+
+[ext_resource type="FontFile" uid="uid://dpaiod0xc1xgs" path="res://graphics/fonts/pixel_2.ttf" id="1_6xoim"]
+[ext_resource type="Script" path="res://clients/player/info_panel/info_panel.gd" id="1_8cvad"]
+
+[node name="InfoPanel" type="Panel"]
+offset_top = 72.0
+offset_right = 384.0
+offset_bottom = 256.0
+script = ExtResource("1_8cvad")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 184.0
+theme_override_constants/separation = 0
+
+[node name="StateName" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6xoim")
+theme_override_font_sizes/font_size = 40
+text = "State name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Date" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6xoim")
+theme_override_font_sizes/font_size = 30
+text = "25.02.1917"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Industry" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6xoim")
+theme_override_font_sizes/font_size = 30
+text = "Industry"
+vertical_alignment = 1
+
+[node name="Army" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_6xoim")
+theme_override_font_sizes/font_size = 30
+text = "Army"
+vertical_alignment = 1

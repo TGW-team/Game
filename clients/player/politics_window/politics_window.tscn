@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3u7jd3bp1f3v"]
+
+[ext_resource type="FontFile" uid="uid://dpaiod0xc1xgs" path="res://graphics/fonts/pixel_2.ttf" id="1_b42d4"]
+[ext_resource type="Script" path="res://clients/player/politics_window/politics_window.gd" id="1_p335v"]
+[ext_resource type="PackedScene" uid="uid://b3p71v3652nui" path="res://clients/player/politics_window/party_panel/party_panel.tscn" id="2_xje2u"]
+
+[node name="PoliticsWindow" type="Panel"]
+offset_top = 120.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_p335v")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("1_b42d4")
+theme_override_font_sizes/font_size = 40
+text = "Выбор правящей партии"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Government" type="Label" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_right = 1408.0
+offset_bottom = 72.0
+theme_override_fonts/font = ExtResource("1_b42d4")
+theme_override_font_sizes/font_size = 50
+text = "Форма правления"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RulingParty" type="Label" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 72.0
+offset_right = 1408.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("1_b42d4")
+theme_override_font_sizes/font_size = 40
+text = "Правящая партия"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+offset_top = 72.0
+offset_right = 480.0
+offset_bottom = 960.0
+
+[node name="PartiesList" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PartyPanel" parent="ScrollContainer/PartiesList" instance=ExtResource("2_xje2u")]
+visible = false
+layout_mode = 2

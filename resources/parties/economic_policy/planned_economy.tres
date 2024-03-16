@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="EconomicPolicy" load_steps=2 format=3 uid="uid://ds58l0adu22nn"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/economic_policy.gd" id="1_cuxmk"]
+
+[resource]
+script = ExtResource("1_cuxmk")
+policy_name = "PLANNED_ECONOMY"

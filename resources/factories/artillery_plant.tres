@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="FactoryType" load_steps=8 format=3 uid="uid://ddkrgl0cpdjws"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/factory_type.gd" id="1_efm6v"]
+[ext_resource type="Resource" uid="uid://1uepvi34g7u2" path="res://resources/goods/artillery.tres" id="1_yr0x4"]
+[ext_resource type="Resource" uid="uid://dmcqdafd5smv5" path="res://resources/goods/parts.tres" id="2_5vnhw"]
+[ext_resource type="Script" path="res://resources/gd_scripts/storage_good_res.gd" id="3_2drv5"]
+[ext_resource type="Resource" uid="uid://cvxud2tkf08y6" path="res://resources/goods/steel.tres" id="4_uixsv"]
+
+[sub_resource type="Resource" id="Resource_yjc6s"]
+script = ExtResource("3_2drv5")
+good_res = ExtResource("2_5vnhw")
+required_number = 0.1
+
+[sub_resource type="Resource" id="Resource_um7wf"]
+script = ExtResource("3_2drv5")
+good_res = ExtResource("4_uixsv")
+required_number = 0.1
+
+[resource]
+script = ExtResource("1_efm6v")
+enterprise_name = ""
+produced_good = ExtResource("1_yr0x4")
+production_type = "weapon_industry"
+basic_production_eff = 0.8
+raw_materials_list = Array[ExtResource("3_2drv5")]([SubResource("Resource_yjc6s"), SubResource("Resource_um7wf")])

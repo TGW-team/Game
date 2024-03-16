@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://drgxywosf7mo2"]
+
+[ext_resource type="Script" path="res://clients/player/values_panel/values_panel.gd" id="1_0g7mk"]
+[ext_resource type="PackedScene" uid="uid://b53le7bg82uow" path="res://clients/player/values_panel/value.tscn" id="2_ts2pc"]
+[ext_resource type="Texture2D" uid="uid://pv5wnmlhw78x" path="res://graphics/sprites/values_panel_icons/money.png" id="3_jikw7"]
+[ext_resource type="Texture2D" uid="uid://d2bmbh2ptf4lv" path="res://graphics/sprites/values_panel_icons/aggressiveness.png" id="3_x5238"]
+[ext_resource type="Texture2D" uid="uid://cp52optsniu7h" path="res://graphics/sprites/values_panel_icons/literacy.png" id="4_uho6e"]
+[ext_resource type="Texture2D" uid="uid://b06am0e4bmv3o" path="res://graphics/sprites/values_panel_icons/population_growth.png" id="5_xevp0"]
+[ext_resource type="Texture2D" uid="uid://blxvmpfcvg4ra" path="res://graphics/sprites/values_panel_icons/unemployment.png" id="6_nbmtp"]
+[ext_resource type="Texture2D" uid="uid://o3phb8120hm1" path="res://graphics/sprites/values_panel_icons/welfare.png" id="7_8vhnn"]
+[ext_resource type="Texture2D" uid="uid://42i78hpqxo1v" path="res://graphics/sprites/values_panel_icons/population_number.png" id="8_q718v"]
+
+[node name="ValuesPanel" type="Panel"]
+texture_filter = 1
+offset_left = 384.0
+offset_top = 72.0
+offset_right = 1920.0
+offset_bottom = 120.0
+script = ExtResource("1_0g7mk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1536.0
+offset_bottom = 48.0
+
+[node name="Value7" parent="HBoxContainer" instance=ExtResource("2_ts2pc")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("3_jikw7")
+
+[node name="Value" parent="HBoxContainer" instance=ExtResource("2_ts2pc")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("3_x5238")
+
+[node name="Value2" parent="HBoxContainer" instance=ExtResource("2_ts2pc")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("4_uho6e")
+
+[node name="Value3" parent="HBoxContainer" instance=ExtResource("2_ts2pc")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("5_xevp0")
+
+[node name="Value4" parent="HBoxContainer" instance=ExtResource("2_ts2pc")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("6_nbmtp")
+
+[node name="Value5" parent="HBoxContainer" instance=ExtResource("2_ts2pc")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("7_8vhnn")
+
+[node name="Value6" parent="HBoxContainer" instance=ExtResource("2_ts2pc")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("8_q718v")

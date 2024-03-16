@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://g885v6cfava6"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_d00gh"]
+[ext_resource type="Texture2D" uid="uid://372cqbfrgje1" path="res://graphics/sprites/goods/automobiles.png" id="1_o71tp"]
+
+[resource]
+script = ExtResource("1_d00gh")
+good_name = "automobiles"
+icon = ExtResource("1_o71tp")
+basic_price = 40.0

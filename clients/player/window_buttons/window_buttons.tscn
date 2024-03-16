@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckur535u7nqh2"]
+
+[ext_resource type="FontFile" uid="uid://dpaiod0xc1xgs" path="res://graphics/fonts/pixel_2.ttf" id="1_7i6vh"]
+[ext_resource type="Texture2D" uid="uid://bers2go5pyw8o" path="res://graphics/sprites/window_icons/production.png" id="2_qf0oq"]
+[ext_resource type="Script" path="res://clients/player/window_buttons/window_button.gd" id="3_6y1k8"]
+[ext_resource type="Texture2D" uid="uid://beq0gmm56xgua" path="res://graphics/sprites/window_icons/reforms.png" id="3_vga4e"]
+[ext_resource type="Texture2D" uid="uid://brewmo7glprg0" path="res://graphics/sprites/window_icons/research.png" id="4_p3whw"]
+
+[node name="WindowButtons" type="HBoxContainer"]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 88.0
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_7i6vh")
+theme_override_font_sizes/font_size = 25
+text = "PRODUCTION"
+icon = ExtResource("2_qf0oq")
+expand_icon = true
+script = ExtResource("3_6y1k8")
+node_name = "ProductionWindow"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_7i6vh")
+theme_override_font_sizes/font_size = 25
+text = "BUDGET"
+script = ExtResource("3_6y1k8")
+node_name = "BudgetWindow"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_7i6vh")
+theme_override_font_sizes/font_size = 25
+disabled = true
+text = "REFORMS"
+icon = ExtResource("3_vga4e")
+expand_icon = true
+script = ExtResource("3_6y1k8")
+
+[node name="Button7" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_7i6vh")
+theme_override_font_sizes/font_size = 25
+text = "POLITICS"
+script = ExtResource("3_6y1k8")
+node_name = "PoliticsWindow"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_7i6vh")
+theme_override_font_sizes/font_size = 25
+text = "RESEARCH"
+icon = ExtResource("4_p3whw")
+expand_icon = true
+script = ExtResource("3_6y1k8")
+node_name = "ResearchWindow"
+
+[node name="Button5" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_7i6vh")
+theme_override_font_sizes/font_size = 25
+disabled = true
+text = "POPULATION"
+script = ExtResource("3_6y1k8")
+
+[node name="Button6" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_7i6vh")
+theme_override_font_sizes/font_size = 25
+disabled = true
+text = "MARKET"
+script = ExtResource("3_6y1k8")

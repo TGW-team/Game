@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="FactoryType" load_steps=6 format=3 uid="uid://c41p7m8m30sdx"]
+
+[ext_resource type="Resource" uid="uid://bxlp6x40bsxjm" path="res://resources/goods/clothes.tres" id="1_dx6pr"]
+[ext_resource type="Script" path="res://resources/gd_scripts/factory_type.gd" id="1_euf1a"]
+[ext_resource type="Resource" uid="uid://npihvo1u5s2g" path="res://resources/goods/fabric.tres" id="2_b8w0a"]
+[ext_resource type="Script" path="res://resources/gd_scripts/storage_good_res.gd" id="3_s07sj"]
+
+[sub_resource type="Resource" id="Resource_shltk"]
+script = ExtResource("3_s07sj")
+good_res = ExtResource("2_b8w0a")
+required_number = 0.1
+
+[resource]
+script = ExtResource("1_euf1a")
+enterprise_name = ""
+produced_good = ExtResource("1_dx6pr")
+production_type = "consumer_industry"
+basic_production_eff = 0.6
+raw_materials_list = Array[ExtResource("3_s07sj")]([SubResource("Resource_shltk")])

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="FactoryType" load_steps=8 format=3 uid="uid://buvkpc3cr77xk"]
+
+[ext_resource type="Resource" uid="uid://bxg2heepvtto5" path="res://resources/goods/ammo.tres" id="1_nc3ql"]
+[ext_resource type="Script" path="res://resources/gd_scripts/factory_type.gd" id="1_pnjp7"]
+[ext_resource type="Resource" uid="uid://c630m0t0gpocw" path="res://resources/goods/iron.tres" id="2_dxxap"]
+[ext_resource type="Script" path="res://resources/gd_scripts/storage_good_res.gd" id="2_upddb"]
+[ext_resource type="Resource" uid="uid://d34d3pvjgle52" path="res://resources/goods/sulphur.tres" id="4_1jnxc"]
+
+[sub_resource type="Resource" id="Resource_t13d3"]
+script = ExtResource("2_upddb")
+good_res = ExtResource("2_dxxap")
+required_number = 0.1
+
+[sub_resource type="Resource" id="Resource_d2oey"]
+script = ExtResource("2_upddb")
+good_res = ExtResource("4_1jnxc")
+required_number = 0.1
+
+[resource]
+script = ExtResource("1_pnjp7")
+enterprise_name = ""
+produced_good = ExtResource("1_nc3ql")
+production_type = "weapon_industry"
+basic_production_eff = 1.0
+raw_materials_list = Array[ExtResource("2_upddb")]([SubResource("Resource_t13d3"), SubResource("Resource_d2oey")])

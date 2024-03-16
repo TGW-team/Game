@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://r03axh6ho0wy"]
+
+[ext_resource type="Texture2D" uid="uid://dprgnlskyqssd" path="res://graphics/sprites/goods/fuel.png" id="1_t276c"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_vtc5v"]
+
+[resource]
+script = ExtResource("1_vtc5v")
+good_name = "fuel"
+icon = ExtResource("1_t276c")
+basic_price = 15.0

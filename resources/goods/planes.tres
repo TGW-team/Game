@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://5y8k5wn7y1ov"]
+
+[ext_resource type="Texture2D" uid="uid://cs268kkk3cfqx" path="res://graphics/sprites/goods/plane.png" id="1_drri5"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_esbnm"]
+
+[resource]
+script = ExtResource("1_esbnm")
+good_name = "planes"
+icon = ExtResource("1_drri5")
+basic_price = 20.0

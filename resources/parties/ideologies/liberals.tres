@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Ideology" load_steps=6 format=3 uid="uid://dbi47s7ofyve6"]
+
+[ext_resource type="Resource" uid="uid://cjrcbnwq7b4ek" path="res://resources/parties/economic_policy/market_economy.tres" id="1_6osjc"]
+[ext_resource type="Script" path="res://resources/gd_scripts/ideology.gd" id="1_a05km"]
+[ext_resource type="Resource" uid="uid://bg8r8dcupvvrn" path="res://resources/parties/military_policy/militarism.tres" id="2_oqnyp"]
+[ext_resource type="Texture2D" uid="uid://bj4x1fimb2bjw" path="res://graphics/sprites/ideologies_icons/liberals_icon.png" id="2_vffn4"]
+[ext_resource type="Resource" uid="uid://1ta2yecgmlnb" path="res://resources/parties/trade_policy/free_trade.tres" id="4_x604f"]
+
+[resource]
+script = ExtResource("1_a05km")
+ideology_name = "liberals"
+economic_policy = ExtResource("1_6osjc")
+trade_policy = ExtResource("4_x604f")
+military_policy = ExtResource("2_oqnyp")
+icon = ExtResource("2_vffn4")

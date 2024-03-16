@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://cbqhhacqwyl71"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_7rxfb"]
+[ext_resource type="Texture2D" uid="uid://bree4qauf5qmc" path="res://graphics/sprites/goods/lumber.png" id="1_dk8sp"]
+
+[resource]
+script = ExtResource("1_7rxfb")
+good_name = "lumber"
+icon = ExtResource("1_dk8sp")
+basic_price = 8.0

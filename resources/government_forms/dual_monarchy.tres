@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GovernmentForm" load_steps=2 format=3 uid="uid://ceqvmbmmux5ht"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/government_form.gd" id="1_6kxew"]
+
+[resource]
+script = ExtResource("1_6kxew")
+government_name = "DUAL_MONARCHY"
+elections = true
+core_ideologies = Array[Resource("res://resources/gd_scripts/ideology.gd")]([])

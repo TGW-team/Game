@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RmcType" load_steps=2 format=3 uid="uid://wk0iymxnvklp"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/rmc_type.gd" id="1_qktjd"]
+
+[resource]
+script = ExtResource("1_qktjd")
+further_produced_goods = Array[Resource("res://resources/gd_scripts/good.gd")]([])
+enterprise_name = ""
+production_type = "agriculture"
+basic_production_eff = 0.5
+raw_materials_list = {}

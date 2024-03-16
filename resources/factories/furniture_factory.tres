@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="FactoryType" load_steps=6 format=3 uid="uid://bx1vns3cj6358"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/factory_type.gd" id="1_3pjuf"]
+[ext_resource type="Resource" uid="uid://bljnpi10v2r74" path="res://resources/goods/furniture.tres" id="1_yenl6"]
+[ext_resource type="Resource" uid="uid://smkf4hso2qdf" path="res://resources/goods/wood.tres" id="2_ll2w3"]
+[ext_resource type="Script" path="res://resources/gd_scripts/storage_good_res.gd" id="3_26cps"]
+
+[sub_resource type="Resource" id="Resource_fi7ao"]
+script = ExtResource("3_26cps")
+good_res = ExtResource("2_ll2w3")
+required_number = 0.1
+
+[resource]
+script = ExtResource("1_3pjuf")
+enterprise_name = ""
+produced_good = ExtResource("1_yenl6")
+production_type = "consumer_industry"
+basic_production_eff = 0.7
+raw_materials_list = Array[ExtResource("3_26cps")]([SubResource("Resource_fi7ao")])

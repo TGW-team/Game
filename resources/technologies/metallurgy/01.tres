@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Technology" load_steps=2 format=3 uid="uid://bu20g4yvn32mn"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/technology.gd" id="1_c5hl1"]
+
+[resource]
+script = ExtResource("1_c5hl1")
+technology_name = ""
+cost = 1000
+activation_year = 1901
+effects_list = null

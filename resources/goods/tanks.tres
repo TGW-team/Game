@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://bjkdjy1425vkd"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_0wb1b"]
+[ext_resource type="Texture2D" uid="uid://gls43lpi6rnn" path="res://graphics/sprites/goods/tanks.png" id="1_ugv3h"]
+
+[resource]
+script = ExtResource("1_0wb1b")
+good_name = "tanks"
+icon = ExtResource("1_ugv3h")
+basic_price = 120.0

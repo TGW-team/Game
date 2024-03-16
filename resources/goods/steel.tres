@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://cvxud2tkf08y6"]
+
+[ext_resource type="Texture2D" uid="uid://c2ihunnjqdxgc" path="res://graphics/sprites/goods/steel.png" id="1_4551d"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_bee30"]
+
+[resource]
+script = ExtResource("1_bee30")
+good_name = "steel"
+icon = ExtResource("1_4551d")
+basic_price = 15.0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://cdgx834wdqa8p"]
+
+[ext_resource type="Texture2D" uid="uid://wjpsqw85lvul" path="res://graphics/sprites/goods/radio.png" id="1_c5jq2"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_d8o4u"]
+
+[resource]
+script = ExtResource("1_d8o4u")
+good_name = "radio"
+icon = ExtResource("1_c5jq2")
+basic_price = 15.0

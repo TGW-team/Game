@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6hfyudqc13i"]
+
+[ext_resource type="Texture2D" uid="uid://372cqbfrgje1" path="res://graphics/sprites/goods/automobiles.png" id="1_pwetr"]
+[ext_resource type="Script" path="res://clients/player/industry_window/factory_panel/factory_panel.gd" id="1_tyb4j"]
+[ext_resource type="FontFile" uid="uid://brbqruuj7dy43" path="res://graphics/fonts/OpenSans-Medium.ttf" id="2_quo0v"]
+[ext_resource type="Texture2D" uid="uid://opaq7463vv06" path="res://graphics/sprites/goods/parts.png" id="3_hml5y"]
+[ext_resource type="FontFile" uid="uid://dpaiod0xc1xgs" path="res://graphics/fonts/pixel_2.ttf" id="4_e42pi"]
+[ext_resource type="Texture2D" uid="uid://cgnfpwoqohli1" path="res://graphics/sprites/goods/cross.png" id="6_5kja2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7pfq"]
+bg_color = Color(0.290196, 0.376471, 0.2, 1)
+
+[node name="FactoryPanel" type="Panel"]
+custom_minimum_size = Vector2(200, 250)
+theme_override_styles/panel = SubResource("StyleBoxFlat_x7pfq")
+script = ExtResource("1_tyb4j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_pwetr")
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_quo0v")
+theme_override_font_sizes/font_size = 16
+text = "  X  "
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 3.94
+texture = ExtResource("3_hml5y")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_e42pi")
+theme_override_font_sizes/font_size = 10
+text = "0.5 ед."
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_5kja2")
+expand_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_5kja2")
+expand_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_5kja2")
+expand_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_5kja2")
+expand_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_e42pi")
+step = 1.0
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_e42pi")
+text = "Craftsmen: n,
+Clerks: n."
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="GoodNumber" type="Label" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_fonts/font = ExtResource("4_e42pi")
+text = "1.92 ед"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Profit" type="Button" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("4_e42pi")
+text = "250"

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PopType" load_steps=6 format=3 uid="uid://bxgrhvy66v7rl"]
+
+[ext_resource type="Resource" uid="uid://783jbrp0iaoo" path="res://resources/goods/grain.tres" id="1_3fhfc"]
+[ext_resource type="Script" path="res://resources/gd_scripts/population_type.gd" id="1_a8uyp"]
+[ext_resource type="Script" path="res://resources/gd_scripts/good_need.gd" id="1_gp0wa"]
+[ext_resource type="Texture2D" uid="uid://bvfpvjjwwyqhp" path="res://graphics/sprites/pop_types/bureaucrats.png" id="3_5jb8m"]
+
+[sub_resource type="Resource" id="Resource_ci1d3"]
+script = ExtResource("1_gp0wa")
+good = ExtResource("1_3fhfc")
+quantity = 0.1
+need_type = "basic_goods"
+
+[resource]
+script = ExtResource("1_a8uyp")
+pop_type_name = "bureaucrats"
+pop_type_icon = ExtResource("3_5jb8m")
+needs_list = Array[ExtResource("1_gp0wa")]([SubResource("Resource_ci1d3")])
+tax_kind = "middle_classes_taxes"
+accounting_tax_kind = "middle_taxes_income"

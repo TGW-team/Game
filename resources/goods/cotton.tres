@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Good" load_steps=3 format=3 uid="uid://k6t8r5lw4afe"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/good.gd" id="1_gew3h"]
+[ext_resource type="Texture2D" uid="uid://cqfr4ajmp5t8h" path="res://graphics/sprites/goods/cotton.png" id="1_nqste"]
+
+[resource]
+script = ExtResource("1_gew3h")
+good_name = "cotton"
+icon = ExtResource("1_nqste")
+basic_price = 4.0
