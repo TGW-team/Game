@@ -1,9 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bgj0h81in03wi"]
-
-[ext_resource type="Script" path="res://Resources/Parties/trade_policy.gd" id="1"]
-
-[resource]
-script = ExtResource("1")
-tariffs_efficiency = 0.0
-investing = true
-policy_name = "free_trade"
