@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs8eruqijhmfs"]
+[gd_scene load_steps=4 format=3 uid="uid://cs8eruqijhmfs"]
 
 [ext_resource type="Script" path="res://addons/tgwassethelper/scenes/main_panel_asset_helper.gd" id="1_xpg3y"]
+[ext_resource type="PackedScene" uid="uid://c0j1metxfh83l" path="res://map.tscn" id="2_k5lt8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fto6s"]
 content_margin_right = 7.0
@@ -18,62 +19,78 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 script = ExtResource("1_xpg3y")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MapEditor" type="HBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MapEditor"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Menu" type="HBoxContainer" parent="MapEditor/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="MapEditor/VBoxContainer/Menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Settings"
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Button2" type="Button" parent="MapEditor/VBoxContainer/Menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Map"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Map" type="HBoxContainer" parent="MapEditor/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer2"]
+[node name="ScrollContainer2" type="ScrollContainer" parent="MapEditor/VBoxContainer/Map"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Container" type="Container" parent="MapEditor/VBoxContainer/Map/ScrollContainer2"]
+custom_minimum_size = Vector2(5700, 2200)
+layout_mode = 2
+
+[node name="Map" parent="MapEditor/VBoxContainer/Map/ScrollContainer2/Container" instance=ExtResource("2_k5lt8")]
+
+[node name="Sidebar" type="ScrollContainer" parent="MapEditor"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 8
 theme_override_styles/panel = SubResource("StyleBoxEmpty_fto6s")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MapEditor/Sidebar"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="RegionSettings" type="Label" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="RegionSettings" type="Label" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 23
 text = "Region settings"
 horizontal_alignment = 1
 
-[node name="LabelPanel" type="Label" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="LabelPanel" type="Label" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Region name"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="RegionName" type="TextEdit" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="RegionName" type="TextEdit" parent="MapEditor/Sidebar/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="LabelPanel2" type="Label" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="LabelPanel2" type="Label" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Population quantity"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="PopulationNumber" type="OptionButton" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="PopulationNumber" type="OptionButton" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 item_count = 4
 popup/item_0/text = "Very few"
@@ -85,14 +102,14 @@ popup/item_2/id = 2
 popup/item_3/text = "Many"
 popup/item_3/id = 3
 
-[node name="LabelPanel3" type="Label" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="LabelPanel3" type="Label" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Starting literacy"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Literacy" type="OptionButton" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="Literacy" type="OptionButton" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 item_count = 5
 popup/item_0/text = "0.3"
@@ -106,30 +123,30 @@ popup/item_3/id = 2
 popup/item_4/text = "0.7"
 popup/item_4/id = 3
 
-[node name="CheckBox_1" type="CheckBox" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="CheckBox_1" type="CheckBox" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 text = "Haves clerks on start"
 
-[node name="CheckBox_2" type="CheckBox" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="CheckBox_2" type="CheckBox" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 text = "Is colonial region"
 
-[node name="CheckBox_3" type="CheckBox" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="CheckBox_3" type="CheckBox" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 text = "Is warm region"
 
-[node name="CheckBox_4" type="CheckBox" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="CheckBox_4" type="CheckBox" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 text = "Mining oil in the future"
 
-[node name="LabelPanel4" type="Label" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="LabelPanel4" type="Label" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Starting industry"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Industry" type="OptionButton" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="Industry" type="OptionButton" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 item_count = 8
 popup/item_0/text = "Metallurgy"
@@ -149,14 +166,14 @@ popup/item_6/id = 5
 popup/item_7/text = "Heavy weapon"
 popup/item_7/id = 6
 
-[node name="LabelPanel5" type="Label" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="LabelPanel5" type="Label" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Landscape"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Landscape" type="OptionButton" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="Landscape" type="OptionButton" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 item_count = 8
 popup/item_0/text = "Равнины"
@@ -176,14 +193,14 @@ popup/item_6/id = 6
 popup/item_7/text = ""
 popup/item_7/id = 7
 
-[node name="LabelPanel6" type="Label" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="LabelPanel6" type="Label" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "RMC"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Rmc1" type="OptionButton" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="Rmc1" type="OptionButton" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 item_count = 15
 popup/item_0/text = "Ничего"
@@ -217,7 +234,7 @@ popup/item_13/id = 13
 popup/item_14/text = ""
 popup/item_14/id = 14
 
-[node name="Rmc2" type="OptionButton" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="Rmc2" type="OptionButton" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 item_count = 15
 popup/item_0/text = "Ничего"
@@ -251,7 +268,7 @@ popup/item_13/id = 13
 popup/item_14/text = ""
 popup/item_14/id = 14
 
-[node name="Rmc3" type="OptionButton" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="Rmc3" type="OptionButton" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 item_count = 15
 popup/item_0/text = "Ничего"
@@ -285,7 +302,7 @@ popup/item_13/id = 13
 popup/item_14/text = ""
 popup/item_14/id = 14
 
-[node name="Rmc4" type="OptionButton" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="Rmc4" type="OptionButton" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 item_count = 15
 popup/item_0/text = "Ничего"
@@ -319,14 +336,14 @@ popup/item_13/id = 13
 popup/item_14/text = ""
 popup/item_14/id = 14
 
-[node name="LabelPanel7" type="Label" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="LabelPanel7" type="Label" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Dominant ideology"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Ideology" type="OptionButton" parent="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer"]
+[node name="Ideology" type="OptionButton" parent="MapEditor/Sidebar/VBoxContainer"]
 layout_mode = 2
 item_count = 2
 popup/item_0/text = "Либералы"
@@ -334,11 +351,11 @@ popup/item_0/id = 0
 popup/item_1/text = "Консерваторы"
 popup/item_1/id = 1
 
-[connection signal="item_selected" from="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/PopulationNumber" to="." method="pop_number_is_changed"]
-[connection signal="item_selected" from="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/Literacy" to="." method="literacy_is_changed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/CheckBox_1" to="." method="check_box_is_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/CheckBox_2" to="." method="check_box_is_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/CheckBox_3" to="." method="check_box_is_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/CheckBox_4" to="." method="check_box_is_pressed"]
-[connection signal="item_selected" from="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/Industry" to="." method="industry_is_changed"]
-[connection signal="item_selected" from="VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/Landscape" to="." method="landscape_is_changed"]
+[connection signal="item_selected" from="MapEditor/Sidebar/VBoxContainer/PopulationNumber" to="." method="pop_number_is_changed"]
+[connection signal="item_selected" from="MapEditor/Sidebar/VBoxContainer/Literacy" to="." method="literacy_is_changed"]
+[connection signal="pressed" from="MapEditor/Sidebar/VBoxContainer/CheckBox_1" to="." method="check_box_is_pressed"]
+[connection signal="pressed" from="MapEditor/Sidebar/VBoxContainer/CheckBox_2" to="." method="check_box_is_pressed"]
+[connection signal="pressed" from="MapEditor/Sidebar/VBoxContainer/CheckBox_3" to="." method="check_box_is_pressed"]
+[connection signal="pressed" from="MapEditor/Sidebar/VBoxContainer/CheckBox_4" to="." method="check_box_is_pressed"]
+[connection signal="item_selected" from="MapEditor/Sidebar/VBoxContainer/Industry" to="." method="industry_is_changed"]
+[connection signal="item_selected" from="MapEditor/Sidebar/VBoxContainer/Landscape" to="." method="landscape_is_changed"]
