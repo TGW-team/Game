@@ -44,7 +44,7 @@ func swap(element, next_element):
 
 func insert_images():
 	var canvas = create_canvas()
-	var left_border = 1
+	var left_border = 0
 	var up_border   = 0
 	var current_level_height = 0
 	var sprites_total = sprite_list.size()
@@ -69,20 +69,15 @@ func insert_images():
 
 	emit_signal("done")
 
+
 func create_new_level(canvas: Image, left_border: int, up_border: int, sprite_list_copy):
 	var highest_sprite = sprite_list_copy[0]
 	var current_sprite = sprite_list_copy[0]
 	var region_size    = current_sprite.size
 	
-	var size_sum = region_size.x + left_border + sprite_list_copy[1].size.x
-	
 	while region_size.x + left_border < image_width and not sprite_list_copy.is_empty():
-		
 		current_sprite = sprite_list_copy[0]
 		region_size    = current_sprite.size
-		
-		if region_size.x + left_border > image_width:
-			return highest_sprite
 		
 		current_sprite.anchor_on_atlas = Vector2i(left_border + 1, up_border + 1)
 		emit_signal("atlas_anchor_added", current_sprite)

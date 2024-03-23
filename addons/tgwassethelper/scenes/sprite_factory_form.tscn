@@ -52,7 +52,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "scenes/map/tgw_politic_map.png"
+text = "map_reference.png"
 
 [node name="Block2" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(200, 73)
@@ -112,7 +112,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "scenes/map/map_region/map_region.gd"
+text = "map_region/map_region.gd"
 
 [node name="Block3" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(200, 73)
