@@ -1,4 +1,4 @@
-class_name State
+class_name Country
 extends Resource
 
 
