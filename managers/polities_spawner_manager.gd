@@ -1,6 +1,7 @@
 class_name PolitiesSpawnerManager
 extends RefCounted
 
+
 func create_polity(country: Country):
 	var polity = DbPolity.new()
 	polity.country     = country

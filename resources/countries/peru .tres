@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Country" load_steps=4 format=3 uid="uid://ceav08uvl54jg"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/state.gd" id="1_xkrce"]
+[ext_resource type="Resource" uid="uid://ceqvmbmmux5ht" path="res://resources/government_forms/dual_monarchy.tres" id="2_nuio2"]
+[ext_resource type="Resource" uid="uid://wx6o5q6d3r25" path="res://resources/parties/ideologies/conservatives.tres" id="3_6p4mt"]
+
+[resource]
+script = ExtResource("1_xkrce")
+state_name = "VENEZUELA"
+starting_state = true
+starting_ruling_party = ExtResource("3_6p4mt")
+starting_government = ExtResource("2_nuio2")
+color = Color(1, 0.470588, 0.00784314, 1)

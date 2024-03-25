@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Country" load_steps=4 format=3 uid="uid://d4h7l2d7p8pm7"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/state.gd" id="1_dubma"]
+[ext_resource type="Resource" uid="uid://ceqvmbmmux5ht" path="res://resources/government_forms/dual_monarchy.tres" id="2_208ws"]
+[ext_resource type="Resource" uid="uid://wx6o5q6d3r25" path="res://resources/parties/ideologies/conservatives.tres" id="3_0px00"]
+
+[resource]
+script = ExtResource("1_dubma")
+state_name = "BRAZIL"
+starting_state = true
+starting_ruling_party = ExtResource("3_0px00")
+starting_government = ExtResource("2_208ws")
+color = Color(0.698039, 0, 1, 1)

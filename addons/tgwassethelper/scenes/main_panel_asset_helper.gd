@@ -1,52 +1,53 @@
+@tool
 extends Node
 
-@onready var values_list     = $VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer
+@onready var map            = preload("res://addons/tgwassethelper/scenes/map.tscn")
+@onready var sprite_factory = preload("res://addons/tgwassethelper/scenes/sprite_factory_form.tscn")
 
-@onready var pop_number      = $VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/PopulationNumber
-@onready var literacy_number = $VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/Literacy
-@onready var industry        = $VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/Industry
-@onready var landscape       = $VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/Landscape
-@onready var ideology        = $VBoxContainer/HBoxContainer2/ScrollContainer/VBoxContainer/Ideology
+@onready var values_list     = $MapEditor/Sidebar/VBoxContainer
+@onready var hud_container   = $MapEditor/VBoxContainer
+
+@onready var pop_number      = $MapEditor/Sidebar/VBoxContainer/PopulationNumber
+@onready var literacy_number = $MapEditor/Sidebar/VBoxContainer/Literacy
+@onready var industry        = $MapEditor/Sidebar/VBoxContainer/Industry
+@onready var landscape       = $MapEditor/Sidebar/VBoxContainer/Landscape
+@onready var ideology        = $MapEditor/Sidebar/VBoxContainer/Ideology
+
+
+var showed_element
 
 
 func show_region_settings(region):
-	pass
+	remove_showed_element()
+	hud_container.add_child(map.instantiate())
+
+
+func show_map():
+	set_showed_element(map)
+
+
+func show_sprite_factory():
+	set_showed_element(sprite_factory)
+
+
+func set_showed_element(el):
+	remove_showed_element()
+	var node = el.instantiate()
+	hud_container.add_child(node)
+	showed_element = node
+
+
+func remove_showed_element():
+	if showed_element != null:
+		hud_container.remove_child(showed_element)
 
 
 func check_box_is_pressed(button_name):
 	values_list.get_node(button_name)
 
 
-func pop_number_is_changed():
-	match get_selected_value(pop_number):
-		"Very few":
-			pass
-		"Few":
-			pass
-		"Normal":
-			pass
-		"Many":
-			pass
-
-
-func literacy_is_changed():
-	float(get_selected_value(literacy_number))
-
-
-func industry_is_changed(industry_type: String):
-	pass
-
-
-func landscape_is_changed(landscape_type: String):
-	pass
-
-
 func rmc_is_changed(button_name: String):
 	values_list.get_node(button_name)
-
-
-func ideology_is_changed(ideology: String):
-	pass
 
 
 func get_selected_value(node: OptionButton):

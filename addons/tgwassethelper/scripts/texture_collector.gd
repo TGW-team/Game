@@ -75,9 +75,15 @@ func create_new_level(canvas: Image, left_border: int, up_border: int, sprite_li
 	var current_sprite = sprite_list_copy[0]
 	var region_size    = current_sprite.size
 	
+	var size_sum = region_size.x + left_border + sprite_list_copy[1].size.x
+	
 	while region_size.x + left_border < image_width and not sprite_list_copy.is_empty():
+		
 		current_sprite = sprite_list_copy[0]
 		region_size    = current_sprite.size
+		
+		if region_size.x + left_border > image_width:
+			return highest_sprite
 		
 		current_sprite.anchor_on_atlas = Vector2i(left_border + 1, up_border + 1)
 		emit_signal("atlas_anchor_added", current_sprite)

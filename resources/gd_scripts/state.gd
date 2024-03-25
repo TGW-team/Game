@@ -7,3 +7,4 @@ extends Resource
 @export var starting_state: bool = true
 @export var starting_ruling_party: Ideology    
 @export var starting_government: GovernmentForm
+@export var color:               Color          = Color()

@@ -10,7 +10,7 @@ var rmc_list:                   Array = []
 var produced_goods:             Array = []
 
 var region_name:    String         = "0001"
-var pop_units_list: Array[PopUnit] = [PopUnit.new("labourers"), PopUnit.new("craftsmen"), PopUnit.new("clerks"), PopUnit.new("bureaucrats")]
+var pop_units_list: Array[DbPopUnit] = [DbPopUnit.new("labourers"), DbPopUnit.new("craftsmen"), DbPopUnit.new("clerks"), DbPopUnit.new("bureaucrats")]
 
 
 

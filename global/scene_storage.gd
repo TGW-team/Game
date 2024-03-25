@@ -1,10 +1,10 @@
 extends Node
 
 
-var starting_state: State
+var starting_state: Country
 var client_setter
 
-var player:              Player
+var player:              Client
 var date_manager:        DateManager
 var consumption_manager: ConsumptionManager
 

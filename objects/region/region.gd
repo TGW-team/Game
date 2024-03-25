@@ -32,7 +32,7 @@ func _pressed():
 	SceneStorage.player.region_window.region_is_pressed(self)
 
 
-func set_region_owner(new_owner: Client):
+func set_region_owner(new_owner: DbPolity):
 	var old_owner = get_parent()
 	
 	get_parent().remove_child(self)
@@ -45,7 +45,7 @@ func set_region_owner(new_owner: Client):
 		i.pay_tax_func = new_owner.add_money_to_budget
 		i.get_tax_func = new_owner.economy_manager.get_tax
 	
-	if old_owner is Client:
+	if old_owner is DbPolity:
 		old_owner.population_manager.erase_pop_units(pop_units_list)
 	new_owner.population_manager.register_pop_units(pop_units_list)
 	

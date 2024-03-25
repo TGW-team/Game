@@ -17,12 +17,12 @@ func singleplayer_button_pressed():
 
 
 func set_state_buttons():
-	var dir = DirAccess.open("res://resources/states/")
+	var dir = DirAccess.open("res://resources/countries/")
 	var file_names = dir.get_files()
 	
 	for file_name in file_names:
 		var new_button = example_button.duplicate()
-		var state_res  = load("res://resources/states/" + file_name)
+		var state_res  = load("res://resources/countries/" + file_name)
 		
 		new_button.set_script(load("res://scenes/main_menu/state_button.gd"))
 		new_button.start(state_res)

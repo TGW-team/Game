@@ -3,16 +3,16 @@ extends Node
 
 
 
-func update_buying_resources(client: Client):
+func update_buying_resources(client: DbPolity):
 	pass
 
 
-func update_consumption(client: Client):
+func update_consumption(client: DbPolity):
 	for i in client.population_manager.pop_units_list:
 		buy_consumer_goods(i, client.economy_manager.local_market)
 
 
-func buy_consumer_goods(pop_unit: PopUnit, market: LocalMarket):
+func buy_consumer_goods(pop_unit: DbPopUnit, market: DbLocalMarket):
 	for good_need in pop_unit.pop_type.needs_list:
 		var good          = good_need.good
 		var good_quantity = good_need.quantity * pop_unit.total_quantity

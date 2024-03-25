@@ -1,4 +1,4 @@
-class_name Player
+class_name Client
 extends Node2D
 
 const speed_of_camera: float    = 1000
@@ -13,7 +13,7 @@ const WINDOWS_LIST: Array[String] = ["PoliticsWindow", "BudgetWindow", "RegionWi
 @onready var industry_window = $CanvasLayer/IndustryWindow
 @onready var production_window = $CanvasLayer/ProductionWindow
 
-var client: Client
+var polity: DbPolity
 
 
 func _init():
@@ -51,10 +51,3 @@ func open_window(window_name):
 		get_node("CanvasLayer/" + i).visible = false
 	
 	window.visible = not window_visible
-
-
-func find_client():
-	for state in get_parent().get_node("Map").get_children():
-		if state.state_res == SceneStorage.starting_state:
-			client = state
-	politics_window.update_party_list()

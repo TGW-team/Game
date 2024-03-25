@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs8eruqijhmfs"]
+[gd_scene load_steps=3 format=3 uid="uid://cs8eruqijhmfs"]
 
 [ext_resource type="Script" path="res://addons/tgwassethelper/scenes/main_panel_asset_helper.gd" id="1_xpg3y"]
-[ext_resource type="PackedScene" uid="uid://c0j1metxfh83l" path="res://map.tscn" id="2_k5lt8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fto6s"]
 content_margin_right = 7.0
@@ -40,20 +39,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Map"
 
-[node name="Map" type="HBoxContainer" parent="MapEditor/VBoxContainer"]
+[node name="Button3" type="Button" parent="MapEditor/VBoxContainer/Menu"]
 layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2
-
-[node name="ScrollContainer2" type="ScrollContainer" parent="MapEditor/VBoxContainer/Map"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Container" type="Container" parent="MapEditor/VBoxContainer/Map/ScrollContainer2"]
-custom_minimum_size = Vector2(5700, 2200)
-layout_mode = 2
-
-[node name="Map" parent="MapEditor/VBoxContainer/Map/ScrollContainer2/Container" instance=ExtResource("2_k5lt8")]
+theme_override_font_sizes/font_size = 30
+text = "Factory"
 
 [node name="Sidebar" type="ScrollContainer" parent="MapEditor"]
 custom_minimum_size = Vector2(250, 0)
@@ -351,11 +340,9 @@ popup/item_0/id = 0
 popup/item_1/text = "Консерваторы"
 popup/item_1/id = 1
 
-[connection signal="item_selected" from="MapEditor/Sidebar/VBoxContainer/PopulationNumber" to="." method="pop_number_is_changed"]
-[connection signal="item_selected" from="MapEditor/Sidebar/VBoxContainer/Literacy" to="." method="literacy_is_changed"]
+[connection signal="pressed" from="MapEditor/VBoxContainer/Menu/Button2" to="." method="show_map"]
+[connection signal="pressed" from="MapEditor/VBoxContainer/Menu/Button3" to="." method="show_sprite_factory"]
 [connection signal="pressed" from="MapEditor/Sidebar/VBoxContainer/CheckBox_1" to="." method="check_box_is_pressed"]
 [connection signal="pressed" from="MapEditor/Sidebar/VBoxContainer/CheckBox_2" to="." method="check_box_is_pressed"]
 [connection signal="pressed" from="MapEditor/Sidebar/VBoxContainer/CheckBox_3" to="." method="check_box_is_pressed"]
 [connection signal="pressed" from="MapEditor/Sidebar/VBoxContainer/CheckBox_4" to="." method="check_box_is_pressed"]
-[connection signal="item_selected" from="MapEditor/Sidebar/VBoxContainer/Industry" to="." method="industry_is_changed"]
-[connection signal="item_selected" from="MapEditor/Sidebar/VBoxContainer/Landscape" to="." method="landscape_is_changed"]

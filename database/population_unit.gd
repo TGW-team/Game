@@ -1,4 +1,4 @@
-class_name PopUnit
+class_name DbPopUnit
 extends Resource
 
 const DISTRIBUTING_WORKERS_LOOP_1:   Array[float] = [0.5, 0.25, 0.12, 0.06, 0.04, 0.03]

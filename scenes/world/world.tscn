@@ -1,18 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://032i4bolqw7v"]
+[gd_scene load_steps=5 format=3 uid="uid://032i4bolqw7v"]
 
-[ext_resource type="PackedScene" uid="uid://b3po28cuw1v23" path="res://scenes/map/map.tscn" id="1_hdqoy"]
 [ext_resource type="Script" path="res://scenes/world/world.gd" id="1_wexnp"]
 [ext_resource type="PackedScene" uid="uid://dk81ajxg3liwl" path="res://clients/player/player.tscn" id="2_1fkwr"]
 [ext_resource type="Script" path="res://global/date_manager.gd" id="4_p2j47"]
-[ext_resource type="PackedScene" uid="uid://dowcw5xulyd3n" path="res://objects/region/region.tscn" id="5_xxbro"]
-[ext_resource type="Texture2D" uid="uid://drs117otbqc6x" path="res://graphics/sprites/ideologies_icons/fascists_icon.png" id="6_ud414"]
 [ext_resource type="PackedScene" uid="uid://c0j1metxfh83l" path="res://map.tscn" id="7_jclxr"]
 
 [node name="World" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_wexnp")
-
-[node name="Map" parent="." instance=ExtResource("1_hdqoy")]
 
 [node name="Player" parent="." instance=ExtResource("2_1fkwr")]
 
@@ -20,13 +15,5 @@ script = ExtResource("1_wexnp")
 wait_time = 0.5
 autostart = true
 script = ExtResource("4_p2j47")
-
-[node name="Region" parent="." instance=ExtResource("5_xxbro")]
-offset_left = -88.0
-offset_top = -96.0
-offset_right = 96.0
-offset_bottom = 96.0
-texture_normal = ExtResource("6_ud414")
-stretch_mode = 0
 
 [node name="Map2" parent="." instance=ExtResource("7_jclxr")]

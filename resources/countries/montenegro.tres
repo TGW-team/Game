@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Country" load_steps=4 format=3 uid="uid://b5snlwht8s1w6"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/state.gd" id="1_3qaaj"]
+[ext_resource type="Resource" uid="uid://ceqvmbmmux5ht" path="res://resources/government_forms/dual_monarchy.tres" id="2_6506e"]
+[ext_resource type="Resource" uid="uid://wx6o5q6d3r25" path="res://resources/parties/ideologies/conservatives.tres" id="2_he51p"]
+
+[resource]
+script = ExtResource("1_3qaaj")
+state_name = "MONTENEGRO"
+starting_state = true
+starting_ruling_party = ExtResource("2_he51p")
+starting_government = ExtResource("2_6506e")
+color = Color(0.498039, 0, 0, 1)

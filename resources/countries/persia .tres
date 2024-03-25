@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Country" load_steps=4 format=3 uid="uid://da2rlkbdgcudf"]
+
+[ext_resource type="Script" path="res://resources/gd_scripts/state.gd" id="1_1ddnb"]
+[ext_resource type="Resource" uid="uid://ceqvmbmmux5ht" path="res://resources/government_forms/dual_monarchy.tres" id="2_ebjvy"]
+[ext_resource type="Resource" uid="uid://wx6o5q6d3r25" path="res://resources/parties/ideologies/conservatives.tres" id="3_vydes"]
+
+[resource]
+script = ExtResource("1_1ddnb")
+state_name = "PERSIA"
+starting_state = true
+starting_ruling_party = ExtResource("3_vydes")
+starting_government = ExtResource("2_ebjvy")
+color = Color(1, 0.607843, 0.329412, 1)
