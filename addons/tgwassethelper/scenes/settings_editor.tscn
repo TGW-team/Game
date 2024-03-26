@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://4dyluffgmymy"]
+
+[ext_resource type="PackedScene" uid="uid://budsybdt6m37c" path="res://addons/tgwassethelper/scenes/menu.tscn" id="1_ad8nb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fto6s"]
+content_margin_right = 7.0
+
+[node name="SettingsEditor" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Menu" parent="VBoxContainer" instance=ExtResource("1_ad8nb")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Sidebar" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fto6s")

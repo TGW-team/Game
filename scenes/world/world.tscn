@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/world/world.gd" id="1_wexnp"]
 [ext_resource type="PackedScene" uid="uid://dk81ajxg3liwl" path="res://clients/player/player.tscn" id="2_1fkwr"]
 [ext_resource type="Script" path="res://global/date_manager.gd" id="4_p2j47"]
-[ext_resource type="PackedScene" uid="uid://c0j1metxfh83l" path="res://map.tscn" id="7_jclxr"]
+[ext_resource type="PackedScene" uid="uid://c0j1metxfh83l" path="res://scenes/map.tscn" id="7_jclxr"]
 
 [node name="World" type="Node2D"]
 texture_filter = 1

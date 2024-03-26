@@ -11,10 +11,24 @@ const image_width  = 5000 # Ширина картинки
 var sprite_list: Array[TGWAssetHelperSplitter.MapRegion]
 var save_path
 
+var _stop = false
+var _thread: Thread = Thread.new()
+
+
 func start(regions: Array[TGWAssetHelperSplitter.MapRegion], _save_path: String):
 	sprite_list = regions
 	save_path = _save_path
 	
+	_thread.start(_operate)
+
+
+func _notification(what):
+	if what == NOTIFICATION_PREDELETE:
+		_stop = true
+		_thread.wait_to_finish()
+
+
+func _operate():
 	sort_sprite_list()
 	insert_images()
 
@@ -28,6 +42,9 @@ func sort_sprite_list(): # Метод сортировки пузырьками.
 			floor(float(i+1) / float(list_size) * 50) 
 		)
 		for j in range(list_size - i - 1):
+			if _stop:
+				return
+			
 			var el_1 := sprite_list[j]
 			var el_2 := sprite_list[j + 1]
 			
@@ -51,6 +68,9 @@ func insert_images():
 	var sprite_list_copy: Array[TGWAssetHelperSplitter.MapRegion] = sprite_list.duplicate() # Копия нужна что бы сохранить оригинальную структуру массива
 	
 	while sprite_list_copy.size() > 0:
+		if _stop:
+			return
+		
 		emit_signal(
 			"progress_updated", 
 			50 + floor(float(sprite_list_copy.size()) / float(sprites_total) * 50) 

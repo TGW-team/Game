@@ -1,3 +1,9 @@
+map.tscn
+scenes/map.tscn
+map_atlas.png
+map_atlas.png.import
+graphics/compiled/*
+
 # Godot-specific ignores
 .godot
 .import/

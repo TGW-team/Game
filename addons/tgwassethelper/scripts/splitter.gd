@@ -32,13 +32,22 @@ var image_data: Array = []
 var regions: Array = []
 var completed_regions: Array[MapRegion] = []
 
-var process_done = false
+var _stop = false
+var _thread := Thread.new()
+
 var region_index = 0
 var cells_operated := 0
 var cells_total := 0
 
+
 func start(new_image: Image):
-	_operate(new_image)
+	_thread.start(_operate.bind(new_image))
+
+
+func _notification(what):
+	if what == NOTIFICATION_PREDELETE:
+		_stop = true
+		_thread.wait_to_finish()
 
 
 func _operate(new_image: Image):
@@ -60,7 +69,7 @@ func _operate(new_image: Image):
 		for x in range(origin_size.x):
 			
 			# На случай принудительного завершения треда, прерываем цикл и выходим досрочно
-			if process_done:
+			if _stop:
 				return
 			
 			# Проверяем не прошли мы уже эту ячейку ранее
@@ -149,7 +158,7 @@ func _filling(x: int, y: int, region: MapRegion, map: Image):
 
 func _image_factory():
 	while true:
-		if process_done:
+		if _stop:
 			break
 			
 		var region = regions.pop_back()

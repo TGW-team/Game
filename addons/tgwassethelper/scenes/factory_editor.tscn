@@ -1,0 +1,330 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds5y0rc2tbony"]
+
+[ext_resource type="PackedScene" uid="uid://budsybdt6m37c" path="res://addons/tgwassethelper/scenes/menu.tscn" id="1_1ditv"]
+
+[sub_resource type="GDScript" id="GDScript_qgf1d"]
+script/source = "@tool
+extends HBoxContainer
+
+@onready var progress_bar: ProgressBar = get_node(\"%ProgressBar\")
+var progress_steps := 2
+var progress_value: = 0.0
+
+var input_file_name: String
+var output_map_file_name: String
+var output_scene_file_name: String
+var input_region_script: String
+
+var splitter: TGWAssetHelperSplitter
+var collector: TGWAssetHelperTextureCollector
+var atlas_creator: TGWAssetHelperAtlasCreator
+var bitmap_creator: TGWAssetHelperBitmapCreator
+var map_creator: TGWAssetHelperMapCreator
+
+var _thread: Thread
+
+
+func _process(delta):
+	progress_bar.value = progress_value
+
+
+func _exit_tree():
+	_on_cancel_pressed()
+
+
+func _run_factory():
+	# Atlas image
+	atlas_creator = load(\"res://addons/tgwassethelper/scripts/atlas_creator.gd\").new()
+	atlas_creator.atlas_texture_created.connect(
+		func(region: TGWAssetHelperSplitter.MapRegion):
+			var task = TGWAssetHelperMapCreator.Task.new()
+			task.region = region
+			task.task = map_creator.TASK_MODIFY_TEXTURE
+			map_creator.add_task(task)
+	)
+	
+	# Bitmap
+	bitmap_creator = load(\"res://addons/tgwassethelper/scripts/bitmap_creator.gd\").new()
+	bitmap_creator.bit_map_created.connect(
+		func(region: TGWAssetHelperSplitter.MapRegion):
+			var task = TGWAssetHelperMapCreator.Task.new()
+			task.region = region
+			task.task = map_creator.TASK_MODIFY_BITMAP
+			map_creator.add_task(task)
+	)
+	
+	# Map scene
+	map_creator = load(\"res://addons/tgwassethelper/scripts/map_creator.gd\").new()
+	map_creator.input_region_script = load(str(\"res://\", input_region_script))
+	map_creator.output_file_path = str(\"res://\", output_scene_file_name)
+	map_creator.task_done.connect(
+		func(task):
+			if task.task == map_creator.TASK_CREATE:
+				bitmap_creator.add_to_process(task.region)
+	)
+	
+	# Collector - pack parts in atlas
+	collector = load(\"res://addons/tgwassethelper/scripts/texture_collector.gd\").new()
+	collector.progress_updated.connect(_on_collector_progress_update)
+	collector.done.connect(
+		func():
+			var atlas = load(str(\"res://\", output_map_file_name))
+			var task = TGWAssetHelperMapCreator.Task.new()
+			task.data = atlas
+			task.task = map_creator.TASK_MODIFY_ATLAS
+			map_creator.add_task(task)
+			
+			map_creator.save_map()
+			await map_creator.done
+			
+			_on_cancel_pressed()
+			print(\"Saved: \", str(\"res://\", output_scene_file_name))
+			print(\"All done\")
+	)
+	collector.atlas_anchor_added.connect(
+		func(region: TGWAssetHelperSplitter.MapRegion):
+			atlas_creator.add_to_process(region)
+	)
+	
+	# Splitter - scan data from source image
+	splitter = load(\"res://addons/tgwassethelper/scripts/splitter.gd\").new()
+	splitter.progress_updated.connect(_on_splitter_progress_update)
+	splitter.done.connect(
+		func():
+			collector.start(splitter.completed_regions, str(\"res://\", output_map_file_name))
+	)
+	splitter.new_completed_region.connect(
+		func(region):
+			var task = TGWAssetHelperMapCreator.Task.new()
+			task.region = region
+			task.task = map_creator.TASK_CREATE
+			map_creator.add_task(task)
+	)
+	
+	var input_texture: Texture2D = load(str(\"res://\", input_file_name))
+	splitter.start(input_texture.get_image())
+
+
+func _on_build_pressed():
+	input_file_name = get_node(\"%InputReferenceName\").text
+	output_map_file_name = get_node(\"%OutputMapName\").text
+	output_scene_file_name = get_node(\"%OutputSceneName\").text
+	input_region_script = get_node(\"%InputRegionScript\").text
+	
+	_thread = Thread.new()
+	_thread.start(_run_factory)
+
+
+func _on_cancel_pressed():
+	splitter = null
+	collector = null
+	atlas_creator = null
+	bitmap_creator = null
+	map_creator = null
+	
+	if _thread:
+		_thread.wait_to_finish()
+		_thread = null
+		
+	progress_value = 0.0
+
+
+func _on_splitter_progress_update(progress: int):
+	_on_progress_update(progress, 1)
+
+
+func _on_collector_progress_update(progress: int):
+	_on_progress_update(progress, 2)
+
+
+func _on_progress_update(progress: int, current_step: int):
+	_update_progress_bar_on_step(progress, current_step, progress_steps)
+
+
+func _update_progress_bar_on_step(progress: int, step: int, step_total: int):
+	progress_value = float(step - 1) / float(step_total) + float(progress) * float(step) / float(step_total)
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fto6s"]
+content_margin_right = 7.0
+
+[node name="FactoryEditor" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_qgf1d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Menu" parent="VBoxContainer" instance=ExtResource("1_1ditv")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+text = "Factory"
+
+[node name="SpriteFactory" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/SpriteFactory"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/SpriteFactory/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+rounded = true
+
+[node name="Block" type="Control" parent="VBoxContainer/SpriteFactory/VBoxContainer"]
+custom_minimum_size = Vector2(200, 73)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block"]
+layout_mode = 1
+offset_right = 374.0
+offset_bottom = 23.0
+text = "Map image path"
+
+[node name="Row" type="HBoxContainer" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block/Row"]
+layout_mode = 2
+text = "res://"
+
+[node name="InputReferenceName" type="TextEdit" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block/Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "graphics/tgw_politic_map.png"
+
+[node name="Block2" type="Control" parent="VBoxContainer/SpriteFactory/VBoxContainer"]
+custom_minimum_size = Vector2(200, 73)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block2"]
+layout_mode = 1
+offset_right = 374.0
+offset_bottom = 23.0
+text = "Output atlas image"
+
+[node name="Row" type="HBoxContainer" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block2/Row"]
+layout_mode = 2
+text = "res://"
+
+[node name="OutputMapName" type="TextEdit" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block2/Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "graphics/compiled/map_atlas.png"
+
+[node name="Block4" type="Control" parent="VBoxContainer/SpriteFactory/VBoxContainer"]
+custom_minimum_size = Vector2(200, 73)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block4"]
+layout_mode = 1
+offset_right = 374.0
+offset_bottom = 23.0
+text = "Region script"
+
+[node name="Row" type="HBoxContainer" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block4/Row"]
+layout_mode = 2
+text = "res://"
+
+[node name="InputRegionScript" type="TextEdit" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block4/Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "scenes/map/map_region/map_region.gd"
+
+[node name="Block3" type="Control" parent="VBoxContainer/SpriteFactory/VBoxContainer"]
+custom_minimum_size = Vector2(200, 73)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block3"]
+layout_mode = 1
+offset_right = 374.0
+offset_bottom = 23.0
+text = "Output scene file"
+
+[node name="Row" type="HBoxContainer" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block3/Row"]
+layout_mode = 2
+text = "res://"
+
+[node name="OutputSceneName" type="TextEdit" parent="VBoxContainer/SpriteFactory/VBoxContainer/Block3/Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "scenes/map.tscn"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/SpriteFactory/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/SpriteFactory/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Build"
+
+[node name="ButtonCancel" type="Button" parent="VBoxContainer/SpriteFactory/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Cancel"
+
+[node name="Sidebar" type="ScrollContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fto6s")
+
+[connection signal="pressed" from="VBoxContainer/SpriteFactory/VBoxContainer/HBoxContainer/Button" to="." method="_on_build_pressed"]
+[connection signal="pressed" from="VBoxContainer/SpriteFactory/VBoxContainer/HBoxContainer/ButtonCancel" to="." method="_on_cancel_pressed"]

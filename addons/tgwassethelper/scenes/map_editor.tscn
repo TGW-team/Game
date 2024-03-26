@@ -1,0 +1,348 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbkjjm6gh56ch"]
+
+[ext_resource type="PackedScene" uid="uid://budsybdt6m37c" path="res://addons/tgwassethelper/scenes/menu.tscn" id="1_4mfge"]
+[ext_resource type="PackedScene" uid="uid://c0j1metxfh83l" path="res://scenes/map.tscn" id="2_iwlr4"]
+
+[sub_resource type="GDScript" id="GDScript_wsm4j"]
+script/source = "@tool
+extends HBoxContainer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fto6s"]
+content_margin_right = 7.0
+
+[node name="MapEditor" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Menu" parent="VBoxContainer" instance=ExtResource("1_4mfge")]
+layout_mode = 2
+
+[node name="Map" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+script = SubResource("GDScript_wsm4j")
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="VBoxContainer/Map"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Container" type="Container" parent="VBoxContainer/Map/ScrollContainer2"]
+custom_minimum_size = Vector2(5700, 2200)
+layout_mode = 2
+
+[node name="Map" parent="VBoxContainer/Map/ScrollContainer2/Container" instance=ExtResource("2_iwlr4")]
+
+[node name="Sidebar" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fto6s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sidebar"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="RegionSettings" type="Label" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "Region settings"
+horizontal_alignment = 1
+
+[node name="LabelPanel" type="Label" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Region name"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="RegionName" type="TextEdit" parent="Sidebar/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="LabelPanel2" type="Label" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Population quantity"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="PopulationNumber" type="OptionButton" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "Very few"
+popup/item_0/id = 0
+popup/item_1/text = "Few"
+popup/item_1/id = 1
+popup/item_2/text = "Normal"
+popup/item_2/id = 2
+popup/item_3/text = "Many"
+popup/item_3/id = 3
+
+[node name="LabelPanel3" type="Label" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Starting literacy"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Literacy" type="OptionButton" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+item_count = 5
+popup/item_0/text = "0.3"
+popup/item_0/id = 3
+popup/item_1/text = "0.2"
+popup/item_1/id = 4
+popup/item_2/text = "0.4"
+popup/item_2/id = 1
+popup/item_3/text = "0.5"
+popup/item_3/id = 2
+popup/item_4/text = "0.7"
+popup/item_4/id = 3
+
+[node name="CheckBox_1" type="CheckBox" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+text = "Haves clerks on start"
+
+[node name="CheckBox_2" type="CheckBox" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+text = "Is colonial region"
+
+[node name="CheckBox_3" type="CheckBox" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+text = "Is warm region"
+
+[node name="CheckBox_4" type="CheckBox" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+text = "Mining oil in the future"
+
+[node name="LabelPanel4" type="Label" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Starting industry"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Industry" type="OptionButton" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+item_count = 8
+popup/item_0/text = "Metallurgy"
+popup/item_0/id = 7
+popup/item_1/text = "Light industry"
+popup/item_1/id = 0
+popup/item_2/text = "Machinary industry"
+popup/item_2/id = 1
+popup/item_3/text = "Electric industry"
+popup/item_3/id = 2
+popup/item_4/text = "Vehicle industry"
+popup/item_4/id = 3
+popup/item_5/text = "Consumer industrry"
+popup/item_5/id = 4
+popup/item_6/text = "Light weapon"
+popup/item_6/id = 5
+popup/item_7/text = "Heavy weapon"
+popup/item_7/id = 6
+
+[node name="LabelPanel5" type="Label" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Landscape"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Landscape" type="OptionButton" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+item_count = 8
+popup/item_0/text = "Равнины"
+popup/item_0/id = 0
+popup/item_1/text = "Холмы"
+popup/item_1/id = 1
+popup/item_2/text = "Горы"
+popup/item_2/id = 2
+popup/item_3/text = "Болота"
+popup/item_3/id = 3
+popup/item_4/text = "Арктика"
+popup/item_4/id = 4
+popup/item_5/text = "Саванна"
+popup/item_5/id = 5
+popup/item_6/text = "Джунгли"
+popup/item_6/id = 6
+popup/item_7/text = ""
+popup/item_7/id = 7
+
+[node name="LabelPanel6" type="Label" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "RMC"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Rmc1" type="OptionButton" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+item_count = 15
+popup/item_0/text = "Ничего"
+popup/item_0/id = 0
+popup/item_1/text = "Зерновая ферма"
+popup/item_1/id = 1
+popup/item_2/text = "Угольная шахта"
+popup/item_2/id = 2
+popup/item_3/text = "Серная шахта"
+popup/item_3/id = 3
+popup/item_4/text = "Шахта (железо)"
+popup/item_4/id = 4
+popup/item_5/text = "Ферма (Коровы+Шерсть)"
+popup/item_5/id = 5
+popup/item_6/text = "Нефтяная вышка"
+popup/item_6/id = 6
+popup/item_7/text = "Каучуковая плантация"
+popup/item_7/id = 7
+popup/item_8/text = "Хлопковая плантация"
+popup/item_8/id = 8
+popup/item_9/text = "Чайная плантация"
+popup/item_9/id = 9
+popup/item_10/text = "Кофейная плантация"
+popup/item_10/id = 10
+popup/item_11/text = "Табачная плантация"
+popup/item_11/id = 11
+popup/item_12/text = "Плантация (Шелк)"
+popup/item_12/id = 12
+popup/item_13/text = "Лесопилка"
+popup/item_13/id = 13
+popup/item_14/text = ""
+popup/item_14/id = 14
+
+[node name="Rmc2" type="OptionButton" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+item_count = 15
+popup/item_0/text = "Ничего"
+popup/item_0/id = 0
+popup/item_1/text = "Зерновая ферма"
+popup/item_1/id = 1
+popup/item_2/text = "Угольная шахта"
+popup/item_2/id = 2
+popup/item_3/text = "Серная шахта"
+popup/item_3/id = 3
+popup/item_4/text = "Шахта (железо)"
+popup/item_4/id = 4
+popup/item_5/text = "Ферма (Коровы+Шерсть)"
+popup/item_5/id = 5
+popup/item_6/text = "Нефтяная вышка"
+popup/item_6/id = 6
+popup/item_7/text = "Каучуковая плантация"
+popup/item_7/id = 7
+popup/item_8/text = "Хлопковая плантация"
+popup/item_8/id = 8
+popup/item_9/text = "Чайная плантация"
+popup/item_9/id = 9
+popup/item_10/text = "Кофейная плантация"
+popup/item_10/id = 10
+popup/item_11/text = "Табачная плантация"
+popup/item_11/id = 11
+popup/item_12/text = "Плантация (Шелк)"
+popup/item_12/id = 12
+popup/item_13/text = "Лесопилка"
+popup/item_13/id = 13
+popup/item_14/text = ""
+popup/item_14/id = 14
+
+[node name="Rmc3" type="OptionButton" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+item_count = 15
+popup/item_0/text = "Ничего"
+popup/item_0/id = 0
+popup/item_1/text = "Зерновая ферма"
+popup/item_1/id = 1
+popup/item_2/text = "Угольная шахта"
+popup/item_2/id = 2
+popup/item_3/text = "Серная шахта"
+popup/item_3/id = 3
+popup/item_4/text = "Шахта (железо)"
+popup/item_4/id = 4
+popup/item_5/text = "Ферма (Коровы+Шерсть)"
+popup/item_5/id = 5
+popup/item_6/text = "Нефтяная вышка"
+popup/item_6/id = 6
+popup/item_7/text = "Каучуковая плантация"
+popup/item_7/id = 7
+popup/item_8/text = "Хлопковая плантация"
+popup/item_8/id = 8
+popup/item_9/text = "Чайная плантация"
+popup/item_9/id = 9
+popup/item_10/text = "Кофейная плантация"
+popup/item_10/id = 10
+popup/item_11/text = "Табачная плантация"
+popup/item_11/id = 11
+popup/item_12/text = "Плантация (Шелк)"
+popup/item_12/id = 12
+popup/item_13/text = "Лесопилка"
+popup/item_13/id = 13
+popup/item_14/text = ""
+popup/item_14/id = 14
+
+[node name="Rmc4" type="OptionButton" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+item_count = 15
+popup/item_0/text = "Ничего"
+popup/item_0/id = 0
+popup/item_1/text = "Зерновая ферма"
+popup/item_1/id = 1
+popup/item_2/text = "Угольная шахта"
+popup/item_2/id = 2
+popup/item_3/text = "Серная шахта"
+popup/item_3/id = 3
+popup/item_4/text = "Шахта (железо)"
+popup/item_4/id = 4
+popup/item_5/text = "Ферма (Коровы+Шерсть)"
+popup/item_5/id = 5
+popup/item_6/text = "Нефтяная вышка"
+popup/item_6/id = 6
+popup/item_7/text = "Каучуковая плантация"
+popup/item_7/id = 7
+popup/item_8/text = "Хлопковая плантация"
+popup/item_8/id = 8
+popup/item_9/text = "Чайная плантация"
+popup/item_9/id = 9
+popup/item_10/text = "Кофейная плантация"
+popup/item_10/id = 10
+popup/item_11/text = "Табачная плантация"
+popup/item_11/id = 11
+popup/item_12/text = "Плантация (Шелк)"
+popup/item_12/id = 12
+popup/item_13/text = "Лесопилка"
+popup/item_13/id = 13
+popup/item_14/text = ""
+popup/item_14/id = 14
+
+[node name="LabelPanel7" type="Label" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Dominant ideology"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Ideology" type="OptionButton" parent="Sidebar/VBoxContainer"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Либералы"
+popup/item_0/id = 0
+popup/item_1/text = "Консерваторы"
+popup/item_1/id = 1
